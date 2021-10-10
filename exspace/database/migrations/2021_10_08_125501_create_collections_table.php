@@ -16,10 +16,10 @@ class CreateCollectionsTable extends Migration
         Schema::create('collections', function (Blueprint $table) {
             $table->id(); //is a big int not int
             $table->timestamps();
-            $table->string("user_id");
-            $table->string("title");
-            $table->longText("description");
-            $table->string("image");
+            $table->string('user_id');
+            $table->string('title');
+            $table->longText('description');
+            $table->string('image');
         });
     }
 
