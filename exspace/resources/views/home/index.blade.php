@@ -37,17 +37,22 @@
             <h2 class="font-bold text-2xl md:text-3xl lg:text-4xl">Explore NFT's</h2>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6 m-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-6 m-6">
+            @foreach($nfts as $nft)
             <div class="w-full shadow-xl rounded-lg">
-                <img class="h-40 w-full object-center object-cover rounded-t-lg" src="https://via.placeholder.com/500x500.png/001155?text=error" alt="test">
+                <img class="h-40 w-full object-center object-cover rounded-t-lg" src="{{$nft->image}}" alt="photo">
                 <div class="p-4">
                     <div class="mb-4">
-                        <p class="font-bold">Title</p>
-                        <p>User</p>
+                        <p class="font-bold">{{$nft->title}}</p>
+                        <p>{{$nft->user_id}}</p>
                     </div>
-                    <p class="font-bold">€Price</p>
+                    <div class="grid grid-cols-2">
+                        <p class="font-bold">€{{$nft->price}}</p>
+                        <a class="text-right font-bold text-indigo-500" href="#">Place a bid</a>
+                    </div>
                 </div>
             </div>
+            @endforeach
         </div>
     </section>
 
