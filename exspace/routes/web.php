@@ -31,3 +31,4 @@ Route::get('/collection', function () {
 Route::get('/assets', function () {
     return view('assets/index');
 })->name('assets');
+
