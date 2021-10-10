@@ -1,8 +1,10 @@
 @extends('layouts/app')
 
+<title>Register | Exspace</title>
+
 @section('content')
 
-<div class="w-screen h-screen flex justify-center items-center bg-gray-100">
+    <div class="w-screen h-screen flex justify-center items-center bg-gray-100">
 		<form class="p-10 bg-white rounded flex justify-center items-center flex-col shadow-md">
 			<p class="mb-5 text-3xl uppercase text-gray-600">register</p>
             <input type="text" name="firstname" class="mb-5 p-3 w-80 focus:border-purple-700 rounded border-2 outline-none" placeholder="first name" required>
