@@ -26,6 +26,7 @@ class NftFactory extends Factory
             'title' => $this->faker->company,
             'description' => $this->faker->text(100),
             'image' => $this->faker->imageUrl(500,500),
+            'price' => $this->faker->randomFloat(2, 1, 100),
             'is_minted' => $this->faker->boolean
         ];
     }
