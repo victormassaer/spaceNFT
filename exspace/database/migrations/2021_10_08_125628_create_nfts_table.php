@@ -16,11 +16,11 @@ class CreateNftsTable extends Migration
         Schema::create('nfts', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('user_id');
-            $table->string('title');
-            $table->longText('description');
-            $table->string('image');
-            $table->boolean('is_minted');
+            $table->string("user_id");
+            $table->string("title");
+            $table->longText("description");
+            $table->string("image");
+            $table->boolean("is_minted");
         });
     }
 
@@ -34,3 +34,5 @@ class CreateNftsTable extends Migration
         Schema::dropIfExists('nfts');
     }
 }
+
+
