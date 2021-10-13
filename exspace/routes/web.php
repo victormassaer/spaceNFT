@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\DatabaseController;
+use \App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +15,18 @@ use \App\Http\Controllers\DatabaseController;
 |
 */
 
-Route::get('/register', function () {
+Route::get('/register',[UsersController::class,'register'], function () {
    return view('register');
 })->name('register');
 
-Route::get('/login', function () {
+Route::post('/register',[UsersController::class,'store'], function () {
+ })->name('register');
+
+Route::get('/login',[UsersController::class, 'login'], function () {
+    return view('login');
+})->name('login');
+
+Route::post('/login',[UsersController::class, 'handleLogin'], function () {
     return view('login');
 })->name('login');
 
