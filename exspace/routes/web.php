@@ -26,6 +26,10 @@ Route::get('/login',[UsersController::class, 'login'], function () {
     return view('login');
 })->name('login');
 
+Route::post('/login',[UsersController::class, 'handleLogin'], function () {
+    return view('login');
+})->name('login');
+
 Route::get('/', [DatabaseController::class, 'getData'])->name('index');
 
 Route::get('/collection', function () {
