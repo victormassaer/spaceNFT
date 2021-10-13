@@ -10,6 +10,7 @@ class DatabaseController extends Controller
     {
         $collections = \DB::table('collections')->get();
         $nfts = \DB::table('nfts')->get();
-        return view('home/index', ['collections' => $collections, 'nfts' => $nfts]);
+        $users = \DB::table('users')->get();
+        return view('home/index', ['collections' => $collections, 'nfts' => $nfts , 'users' => $users]);
     }
 }
