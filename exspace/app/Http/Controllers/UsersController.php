@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
 
-class CollectionController extends Controller
+class UsersController extends Controller
 {
   public function login(){
       return view('register');
