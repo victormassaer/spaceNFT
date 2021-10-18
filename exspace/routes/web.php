@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\DatabaseController;
+use App\Http\Controllers\NFTController;
 use \App\Http\Controllers\UsersController;
 
 /*
@@ -23,11 +24,9 @@ Route::post('/register',[UsersController::class,'store'], function () {
  })->name('register');
 
 Route::get('/login',[UsersController::class, 'login'], function () {
-    return view('login');
 })->name('login');
 
 Route::post('/login',[UsersController::class, 'handleLogin'], function () {
-    return view('login');
 })->name('login');
 
 Route::get('/', [DatabaseController::class, 'getData'])->name('index');
@@ -39,4 +38,12 @@ Route::get('/collection', function () {
 Route::get('/assets', function () {
     return view('assets/index');
 })->name('assets');
+
+Route::get('/addNFT', function(){
+    return view('createNFT');
+})->name('createNFT');
+
+Route::post('/addNFT', [NFTController::class, 'createNFT'], function(){
+    return view('createNFT');
+})->name('createNFT');
 

@@ -10,18 +10,19 @@ use Illuminate\Support\Facades\Auth;
 class UsersController extends Controller
 {
   public function login(){
-      return view('register');
+      return view('login');
   }
 
   public function register(){
-    return view('login');
+    return view('register');
   }
 
   public function store(Request $request){
     $user = new \App\Models\User();
-    $user->fistname = $request->input('firstname');
+    $user->name = $request->input('firstname');
     $user->email = $request->input('email');
     $user->password = Hash::make($request->input('password'));
+    $user->save();
   }
 
   public function handleLogin(Request $request){
