@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NFTController;
-use \App\Http\Controllers\UsersController;
 use \App\Http\Controllers\UserController;
 use \App\Http\Controllers\HomeController;
 
@@ -33,6 +32,8 @@ Route::post('/login',[UserController::class, 'handleLogin'], function () {
 })->name('login');
 
 Route::get('/', [HomeController::class, 'getData']);
+
+Route::get('/nft/{nft}', [NFTController::class, 'show']);
 
 Route::get('/collection', function () {
     return view('collection/index');

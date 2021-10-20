@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Nft extends Model
 {
     use HasFactory;
+    protected $with = ['comments'];
+
+    public function comments() {
+        return $this->hasMany(\App\Models\Comment::class);
+    }
 
     public function user()
     {
