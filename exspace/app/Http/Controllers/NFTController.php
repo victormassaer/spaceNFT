@@ -16,7 +16,7 @@ class NFTController extends Controller
         $nft->price = $request->input('price');
         $nft->is_minted = false;
         $nft->image = "fake image";
-        $nft->user_id = Auth::user()->id;
+        $nft->user_id = Auth::user()->id;   
         $nft->save();
     }
 }

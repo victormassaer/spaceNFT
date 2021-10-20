@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
 
-class UsersController extends Controller
+class UserController extends Controller
 {
   public function login(){
       return view('login');
@@ -32,9 +32,9 @@ class UsersController extends Controller
       ]);
 
       if (Auth::attempt($credentials)){
-          echo "login succesfull";
+          return view("/");
       } else{
-        echo "login failed";
+        return view("/login");
       }
   }
 }
