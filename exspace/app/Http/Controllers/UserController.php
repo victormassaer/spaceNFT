@@ -45,7 +45,7 @@ class UserController extends Controller
     $user = User::all()->where('id', $id)->first();
     $nfts = Nft::all();
     $data = [
-        'users' => $user,
+        'user' => $user,
         'nfts' => $nfts
     ];
     return view('user/details', $data);
