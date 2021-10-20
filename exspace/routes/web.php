@@ -1,9 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use \App\Http\Controllers\DatabaseController;
 use App\Http\Controllers\NFTController;
 use \App\Http\Controllers\UsersController;
+use \App\Http\Controllers\UserController;
+use \App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,20 +17,22 @@ use \App\Http\Controllers\UsersController;
 |
 */
 
-Route::get('/register',[UsersController::class,'register'], function () {
+Route::get('/register',[UserController::class,'register'], function () {
    return view('register');
 })->name('register');
 
-Route::post('/register',[UsersController::class,'store'], function () {
+Route::post('/register',[UserController::class,'store'], function () {
  })->name('register');
 
-Route::get('/login',[UsersController::class, 'login'], function () {
+Route::get('/login',[UserController::class, 'login'], function () {
+    return view('login');
 })->name('login');
 
-Route::post('/login',[UsersController::class, 'handleLogin'], function () {
+Route::post('/login',[UserController::class, 'handleLogin'], function () {
+    return view('login');
 })->name('login');
 
-Route::get('/', [DatabaseController::class, 'getData'])->name('index');
+Route::get('/', [HomeController::class, 'getData']);
 
 Route::get('/collection', function () {
     return view('collection/index');
@@ -47,3 +50,4 @@ Route::post('/addNFT', [NFTController::class, 'createNFT'], function(){
     return view('createNFT');
 })->name('createNFT');
 
+Route::get('/user/{id}', [UserController::class, 'getSingleUser']);
