@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Nft;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
@@ -32,9 +34,22 @@ class UserController extends Controller
       ]);
 
       if (Auth::attempt($credentials)){
-          return view("/");
+          return view('/');
       } else{
-        return view("/login");
+          return view('/login');
       }
+  }
+
+    public function getUsers()
+    {
+        $users = User::all();
+        return view('home/index', ['users' => $users]);
+  }
+
+    public function getSingleUser($id)
+    {
+    $user = User::all()->where('id', $id)->first();
+    $nfts = Nft::all();
+    return view('user/details', ['user' => $user, 'nfts' => $nfts]);
   }
 }
