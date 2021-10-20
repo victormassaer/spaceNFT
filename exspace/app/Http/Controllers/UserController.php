@@ -40,12 +40,6 @@ class UserController extends Controller
       }
   }
 
-    public function getUsers()
-    {
-        $users = User::all();
-        return view('home/index', ['users' => $users]);
-  }
-
     public function getSingleUser($id)
     {
     $user = User::all()->where('id', $id)->first();
