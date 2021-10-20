@@ -10,7 +10,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <title>Exspace</title>
 </head>
-<body >
+<body>
     @yield('content')
 </body>
 </html>
