@@ -21,7 +21,7 @@ class UserController extends Controller
 
   public function store(Request $request){
     $user = new \App\Models\User();
-    $user->name = $request->input('firstname');
+    $user->name = $request->input('name');
     $user->email = $request->input('email');
     $user->password = Hash::make($request->input('password'));
     $user->save();
@@ -40,16 +40,14 @@ class UserController extends Controller
       }
   }
 
-    public function getUsers()
-    {
-        $users = User::all();
-        return view('home/index', ['users' => $users]);
-  }
-
     public function getSingleUser($id)
     {
     $user = User::all()->where('id', $id)->first();
     $nfts = Nft::all();
-    return view('user/details', ['user' => $user, 'nfts' => $nfts]);
+    $data = [
+        'user' => $user,
+        'nfts' => $nfts
+    ];
+    return view('user/details', $data);
   }
 }

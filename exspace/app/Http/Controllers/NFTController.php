@@ -19,4 +19,9 @@ class NFTController extends Controller
         $nft->user_id = Auth::user()->id;   
         $nft->save();
     }
+
+    public function show(\App\Models\Nft $nft){
+        $data['nft'] = $nft;
+        return view('nft/show', $data);
+    }
 }

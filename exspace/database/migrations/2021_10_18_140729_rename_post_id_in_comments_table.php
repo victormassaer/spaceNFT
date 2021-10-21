@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddPriceToNftsTable extends Migration
+class RenamePostIdInCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddPriceToNftsTable extends Migration
      */
     public function up()
     {
-        Schema::table('nfts', function (Blueprint $table) {
-            $table->decimal('price');
+        Schema::table('comments', function (Blueprint $table) {
+            $table->renameColumn('post_id','nft_id');
+
         });
     }
 
@@ -25,8 +26,8 @@ class AddPriceToNftsTable extends Migration
      */
     public function down()
     {
-        Schema::table('nfts', function (Blueprint $table) {
-            //
+        Schema::table('comments', function (Blueprint $table) {
+            $table->renameColumn('nft_id','post_id');
         });
     }
 }

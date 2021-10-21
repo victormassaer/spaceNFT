@@ -14,7 +14,11 @@ class HomeController extends Controller
         $collections = Collection::all();
         $nfts = Nft::all();
         $users = User::all();
-        return view('home/index', ['collections' => $collections, 'nfts' => $nfts, 'users' => $users]);
+        $data = [
+            'collections' => $collections,
+            'nfts' => $nfts,
+            'users' => $users
+        ];
+        return view('home/index', $data);
     }
-
 }
