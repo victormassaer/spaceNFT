@@ -13,7 +13,7 @@
 			<button name="login" class="bg-indigo-500 hover:bg-blue-400 duration-700 transform text-white font-bold p-2 rounded w-80 mb-5" id="login" type="submit" name="submit"><span>Login</span></button>
             <div>
                 <span>Don't have an account yet?</span>
-                <a class="text-indigo-500 font-bold" href="{{ url('register') }}">Register</a>
+                <a class="text-indigo-500 font-bold hover:text-blue-400 duration-700 transform" href="{{ url('register') }}">Register</a>
             </div>
 		</form>
 	</div>
