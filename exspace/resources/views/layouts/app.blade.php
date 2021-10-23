@@ -11,6 +11,12 @@
     <title>Exspace</title>
 </head>
 <body>
+    @auth
+        @include('components.navLoggedIn')
+    @endauth
+    @guest
+        @include('components.navLoggedOut')
+    @endguest
     @yield('content')
 </body>
 </html>

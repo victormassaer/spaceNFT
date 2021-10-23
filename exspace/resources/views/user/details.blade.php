@@ -3,7 +3,6 @@
 <title>{{$user->name}} | Profile | Exspace</title>
 
 @section('content')
-    @include('components.navLoggedOut')
 
     <header class="mx-6 my-8">
         <div class="flex flex-col justify-center items-center">

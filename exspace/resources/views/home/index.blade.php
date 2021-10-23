@@ -3,8 +3,6 @@
 <title>Expand your galaxy | Exspace</title>
 
 @section('content')
-    @include('components.navLoggedIn')
-
     <header class="mx-6 my-8">
         <div class="text-center">
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold py-6 md:py-10 lg:py-16">Expand your galaxy today</h1>

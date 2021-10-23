@@ -3,7 +3,6 @@
 <title> Exspace NFT | {{ $nft['title'] }} </title>
 
 @section('content')
-    @include('components.navLoggedOut')
 
     <header class="mx-6 mt-6 mb-3">
         <div class="text-center">

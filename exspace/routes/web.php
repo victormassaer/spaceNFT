@@ -16,6 +16,7 @@ use \App\Http\Controllers\HomeController;
 |
 */
 
+// Register
 Route::get('/register',[UserController::class,'register'], function () {
    return view('register');
 })->name('register');
@@ -23,6 +24,7 @@ Route::get('/register',[UserController::class,'register'], function () {
 Route::post('/register',[UserController::class,'store'], function () {
  })->name('register');
 
+// Login
 Route::get('/login',[UserController::class, 'login'], function () {
     return view('login');
 })->name('login');
@@ -31,8 +33,10 @@ Route::post('/login',[UserController::class, 'handleLogin'], function () {
     return view('login');
 })->name('login');
 
+// Home
 Route::get('/', [HomeController::class, 'getData']);
 
+// NFT
 Route::get('/nft/{nft}', [NFTController::class, 'show']);
 
 Route::get('/collection', function () {
@@ -51,7 +55,18 @@ Route::post('/addNFT', [NFTController::class, 'createNFT'], function(){
     return view('createNFT');
 })->name('createNFT');
 
-Route::get('/user/{id}', [UserController::class, 'getSingleUser']);
+// Collection
 
+Route::get('/collection', function () {
+    return view('collection/index');
+})->name('collection');
+
+// User
+Route::get('/user/{id}', [UserController::class, 'getSingleUser']);
 Route::get('/user/profile/{id}',  [UserController::class, 'getProfileInfo']);
 //Route::patch('/user/profile/{id}', [UserController::class, 'updateSingleUser']);
+
+// Logout
+Route::get('/logout', [UserController::class, 'logout']);
+
+
