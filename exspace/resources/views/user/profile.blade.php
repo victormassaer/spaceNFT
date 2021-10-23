@@ -4,8 +4,7 @@
 
 @section('content')
 
-    <div class="h-full w-full flex flex-col">
-        @include('components.navLoggedOut')
+
         <div class="flex-grow flex justify-center items-center">
             <div class="p-6 shadow-xl rounded-lg flex justify-center items-center flex-col">
                 <img class="h-60 w-full object-contain object-center rounded-t-lg rounded-lg" src="{{ $user->image }}" alt="profile picture">
@@ -13,6 +12,5 @@
                 <p>{{ $user->email }}</p>
             </div>
         </div>
-    </div>
 
 @endsection
