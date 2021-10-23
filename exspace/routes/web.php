@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\DatabaseController;
 use App\Http\Controllers\NFTController;
 use \App\Http\Controllers\UsersController;
+use \App\Http\Controllers\CollectionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,9 +32,9 @@ Route::post('/login',[UsersController::class, 'handleLogin'], function () {
 
 Route::get('/', [DatabaseController::class, 'getData'])->name('index');
 
-Route::get('/collection', function () {
-    return view('collection/index');
-})->name('collection');
+Route::get('/collection', [CollectionController::class, 'getCollections'])->name('collection');
+
+Route::get('/collection/{title}', [CollectionController::class, 'getCollectionNFT'])->name('detail');
 
 Route::get('/assets', function () {
     return view('assets/index');
