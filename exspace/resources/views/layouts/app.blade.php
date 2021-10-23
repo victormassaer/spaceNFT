@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="{{ asset('images/astronaut_helmet_favicon.png') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <title>Exspace</title>
 </head>
