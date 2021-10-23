@@ -26,6 +26,8 @@
                href="/addNFT">Add NFT</a>
             <a class="mt-2 bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                href="#"><img class="w-10 h-10 rounded-full" src="images/astronaut_helmet.jpg" alt=""></a>
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+               href="{{ url('/logout') }}">Logout</a>
         </nav>
     </div>
 </div>

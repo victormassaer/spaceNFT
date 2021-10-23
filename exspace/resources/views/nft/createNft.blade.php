@@ -2,8 +2,6 @@
 
 <title>create NFT | Exspace</title>
 
-@include('components.navLoggedOut')
-
 @section('content')
 
     <div class="w-screen h-screen flex justify-center items-center">
