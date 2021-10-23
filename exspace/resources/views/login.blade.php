@@ -1,4 +1,4 @@
-@extends('layouts/app')
+@extends('layouts/login_register')
 
 <title>Login | Exspace</title>
 
@@ -10,7 +10,11 @@
 			<p class="mb-5 text-3xl uppercase text-gray-600">Login</p>
 			<input type="email" name="email" class="mb-5 p-3 w-80 focus:border-purple-700 rounded border-2 outline-none" autocomplete="on" placeholder="Email" required>
 			<input type="password" name="password" class="mb-5 p-3 w-80 focus:border-purple-700 rounded border-2 outline-none" autocomplete="on" placeholder="Password" required>
-			<button name="login" class="bg-purple-600 hover:bg-purple-900 text-white font-bold p-2 rounded w-80" id="login" type="submit" name="submit"><span>Login</span></button>
+			<button name="login" class="bg-indigo-500 hover:bg-blue-400 duration-700 transform text-white font-bold p-2 rounded w-80 mb-5" id="login" type="submit" name="submit"><span>Login</span></button>
+            <div>
+                <span>Don't have an account yet?</span>
+                <a class="text-indigo-500 font-bold hover:text-blue-400 duration-700 transform" href="{{ url('register') }}">Register</a>
+            </div>
 		</form>
 	</div>
 
