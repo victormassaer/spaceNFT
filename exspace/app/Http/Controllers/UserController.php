@@ -50,4 +50,10 @@ class UserController extends Controller
     ];
     return view('user/details', $data);
   }
+
+  public function getProfileInfo($id) {
+      $user = User::all()->where('id', $id)->first();
+      $data = ['user' => $user];
+      return view('user/profile', $data);
+  }
 }

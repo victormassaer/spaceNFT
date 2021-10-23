@@ -52,3 +52,6 @@ Route::post('/addNFT', [NFTController::class, 'createNFT'], function(){
 })->name('createNFT');
 
 Route::get('/user/{id}', [UserController::class, 'getSingleUser']);
+
+Route::get('/user/profile/{id}',  [UserController::class, 'getProfileInfo']);
+//Route::patch('/user/profile/{id}', [UserController::class, 'updateSingleUser']);

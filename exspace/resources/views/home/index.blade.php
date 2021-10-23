@@ -3,7 +3,7 @@
 <title>Expand your galaxy | Exspace</title>
 
 @section('content')
-    @include('components.navLoggedOut')
+    @include('components.navLoggedIn')
 
     <header class="mx-6 my-8">
         <div class="text-center">
