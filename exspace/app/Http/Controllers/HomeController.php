@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public function getData()
     {
-        $collections = Collection::all();
+        $collections = Collection::latest()->take(3)->get();
         $nfts = Nft::all();
         $users = User::all();
         $data = [

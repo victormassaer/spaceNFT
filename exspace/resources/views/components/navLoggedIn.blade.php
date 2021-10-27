@@ -21,11 +21,12 @@
             <a class="px-4 py-2 mt-2 text-sm font-semibold text-gray-900 rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                href="{{route('collection')}}">Explore collections</a>
             <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-               href="#">Your collections</a>
-            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-               href="/addNFT">Add NFT</a>
+               href="{{ url('/addNFT') }}">Add NFT</a>
             <a class="mt-2 bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-               href="/user/{{ Auth::id() }}"><img class="w-10 h-10 rounded-full" src="{{ Auth::user()->image }}" alt=""></a>
+               href="/user/{{ Auth::id() }}">
+                <img class="inline w-10 h-10 mr-1 rounded-full" src="{{ Auth::user()->image }}" alt="Profile picture of {{ Auth::user()->name }}">
+                <span class="font-semibold">{{ Auth::user()->name }}</span>
+            </a>
             <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
                href="{{ url('/logout') }}">Logout</a>
         </nav>

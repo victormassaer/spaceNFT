@@ -11,11 +11,11 @@ class Nft extends Model
     protected $with = ['comments'];
 
     public function comments() {
-        return $this->hasMany(\App\Models\Comment::class);
+        return $this->hasMany(Comment::class);
     }
 
     public function user()
     {
-        return $this->belongsTo(\App\Models\User::class);
+        return $this->belongsTo(User::class);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Collection;
 use App\Models\Nft;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -56,9 +57,11 @@ class UserController extends Controller
     {
     $user = User::all()->where('id', $id)->first();
     $nfts = Nft::all();
+    $collections = Collection::all();
     $data = [
         'user' => $user,
-        'nfts' => $nfts
+        'nfts' => $nfts,
+        'collections' => $collections
     ];
     return view('user/details', $data);
   }
