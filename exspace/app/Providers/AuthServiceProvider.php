@@ -2,11 +2,15 @@
 
 namespace App\Providers;
 
+use App\Models\Nft;
+use App\Policies\NftPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {
+
+    var $nftClass = Nft::class;
     /**
      * The policy mappings for the application.
      *
@@ -14,6 +18,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+        Nft::class => NftPolicy::class,
     ];
 
     /**
@@ -25,6 +30,10 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Gate::guessPolicyNamesUsing(function ($nftClass) {
+           return NftPolicy::class;
+        });
+
+        //  
     }
 }

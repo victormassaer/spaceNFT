@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \App\Models\Nft;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -24,4 +25,16 @@ class NFTController extends Controller
         $data['nft'] = $nft;
         return view('nft/show', $data);
     }
+
+    public function mint($id){
+        $error = "You must be the creator of this NFt to mint it.";
+        $nft = Nft::where('id', $id)->first();
+
+        if(\Auth::user()->cannot('update', $nft)){
+            return $error;
+        }
+        $nft->is_minted = true;
+        $nft->save();
+        return redirect("/");
+        }
 }

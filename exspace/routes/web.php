@@ -35,6 +35,8 @@ Route::get('/', [HomeController::class, 'getData']);
 
 Route::get('/nft/{nft}', [NFTController::class, 'show']);
 
+Route::put('/nft/mint/{nft}', [NFTController::class, 'mint']);
+
 Route::get('/collection', function () {
     return view('collection/index');
 })->name('collection');
