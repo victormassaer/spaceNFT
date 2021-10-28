@@ -71,4 +71,17 @@ class UserController extends Controller
       $data = ['user' => $user];
       return view('user/profile', $data);
   }
+
+  public function updateSingleUser($id, Request $request){
+    $user = User::where('id', $id)->first();
+    
+    if(\Auth::user()->cannot('update', $user)){
+        abort(403);
+    }
+
+    $user->name = $request->input("name");
+    $user->email = $request->input('email');
+    $user->image = "/images/astronaut_helmet.jpg";
+    $user->save();
+}
 }
