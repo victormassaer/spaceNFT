@@ -43,10 +43,6 @@ Route::get('/nft/{nft}', [NFTController::class, 'show']);
 
 Route::put('/nft/mint/{nft}', [NFTController::class, 'mint']);
 
-Route::get('/collection', function () {
-    return view('collection/index');
-})->name('collection');
-
 Route::get('/assets', function () {
     return view('assets/index');
 })->name('assets');
@@ -65,13 +61,17 @@ Route::post('/addNFT', [NFTController::class, 'createNFT'], function(){
 
 // Collection
 
-Route::get('/collection', function () {
+Route::get('/collection', [CollectionController::class, 'getCollections'], function () {
     return view('collection/index');
 })->name('collection');
 
 Route::get('/collection/{id}', [CollectionController::class, 'getSingleCollection']);
 
-Route::get('/addCollection', function () {
+Route::get('/createCollection', [CollectionController::class, 'getCollectionByUserId'] , function(){
+    return view('collection/createCollection');
+});
+
+Route::post('/createCollection', [CollectionController::class, 'createCollection'] , function () {
     return view('collection/createCollection');
 });
 

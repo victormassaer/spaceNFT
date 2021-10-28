@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use \App\Models\Nft;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
-
 use Illuminate\Support\Facades\Auth;
 
 class NFTController extends Controller
@@ -23,22 +22,23 @@ class NFTController extends Controller
                 'file' => $imageFile
               ]
           ]);
-    
+
           $imageHash = $response->IpfsHash();*/
 
-        $nft = new \App\Models\Nft();
+        $nft = new Nft();
         $nft->title = $request->input('title');
         $nft->description = $request->input('description');
         $nft->price = $request->input('price');
         $nft->is_minted = false;
         //$nft->image = $imageHash;
-        $nft->image = "stock image";
-        $nft->user_id = Auth::user()->id;   
+        $nft->image = "/images/astronaut_helmet.jpg";
+        $nft->user_id = Auth::user()->id;
         $nft->save();
+        return redirect("/");
     }
 
 
-    public function show(\App\Models\Nft $nft){
+    public function show(Nft $nft){
         $data['nft'] = $nft;
         return view('nft/show', $data);
     }
