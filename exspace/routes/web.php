@@ -51,12 +51,12 @@ Route::get('/assets', function () {
 })->name('assets');
 
 Route::get('/addNFT', function(){
-    return view('createNFT');
+    return view('nft.createNft');
 })->name('createNFT');
 
 Route::post('/addNFT', [NFTController::class, 'createNFT'], function(){
-    return view('createNFT');
-})->name('createNFT');
+    return view('nft.createNft');
+})->name('createNft');
 
 /*Route::post('/addNFT', [ImageController::class, 'saveNFTImage'], function(){
     return view('createNFT');
@@ -67,6 +67,10 @@ Route::post('/addNFT', [NFTController::class, 'createNFT'], function(){
 Route::get('/collection', function () {
     return view('collection/index');
 })->name('collection');
+
+Route::get('/addCollection', function () {
+    return view('collection/createCollection');
+});
 
 // User
 Route::get('/user/{id}', [UserController::class, 'getSingleUser']);

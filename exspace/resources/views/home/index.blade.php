@@ -21,7 +21,7 @@
                 <div class="w-full shadow-xl rounded-lg p-12 flex flex-col justify-center items-center">
                     <div class="mb-8">
                         <img class="object-center object-cover rounded-full h-36 w-36" src="{{ $collection->image }}"
-                             alt="photo">
+                             alt="Collection {{ $collection->title }} image">
                     </div>
                     <div class="text-center">
                         <p class="text-xl text-gray-700 font-bold mb-2">{{ $collection->title }}</p>
@@ -45,7 +45,7 @@
                     <div class="w-full shadow-xl rounded-lg">
                         <a href="/nft/{{ $nft->id }}">
                             <img class="h-40 w-full object-center object-cover rounded-t-lg" src="{{ $nft->image }}"
-                                 alt="photo">
+                                 alt="NFT {{ $nft->title }} image">
                         </a>
                         <div class="p-4">
                             <div class="mb-4">
