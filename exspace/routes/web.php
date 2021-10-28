@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CollectionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NFTController;
 use \App\Http\Controllers\UserController;
@@ -60,6 +61,8 @@ Route::post('/addNFT', [NFTController::class, 'createNFT'], function(){
 Route::get('/collection', function () {
     return view('collection/index');
 })->name('collection');
+
+Route::get('/collection/{id}', [CollectionController::class, 'getSingleCollection']);
 
 Route::get('/addCollection', function () {
     return view('collection/createCollection');

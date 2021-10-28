@@ -26,7 +26,7 @@
                     <div class="text-center">
                         <p class="text-xl text-gray-700 font-bold mb-2">{{ $collection->title }}</p>
                     </div>
-                    <a class="p-2 cursor-pointer pl-5 pr-5 transition-colors duration-700 transform bg-indigo-500 hover:bg-blue-400 text-gray-100 text-lg rounded-lg focus:border-4 border-indigo-300">
+                    <a href="/collection/{{ $collection->id }}" class="p-2 cursor-pointer pl-5 pr-5 transition-colors duration-700 transform bg-indigo-500 hover:bg-blue-400 text-gray-100 text-lg rounded-lg focus:border-4 border-indigo-300">
                         View collection
                     </a>
                 </div>
