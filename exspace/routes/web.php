@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NFTController;
 use \App\Http\Controllers\UserController;
 use \App\Http\Controllers\HomeController;
+use \App\Http\Controllers\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,6 +58,10 @@ Route::post('/addNFT', [NFTController::class, 'createNFT'], function(){
     return view('createNFT');
 })->name('createNFT');
 
+/*Route::post('/addNFT', [ImageController::class, 'saveNFTImage'], function(){
+    return view('createNFT');
+})->name('createNFT');*/
+
 // Collection
 
 Route::get('/collection', function () {
@@ -66,7 +71,8 @@ Route::get('/collection', function () {
 // User
 Route::get('/user/{id}', [UserController::class, 'getSingleUser']);
 Route::get('/user/profile/{id}',  [UserController::class, 'getProfileInfo']);
-//Route::patch('/user/profile/{id}', [UserController::class, 'updateSingleUser']);
+Route::put('/user/update/{id}', [UserController::class, 'updateSingleUser']);
+//Route::put('/user/update/{id}', [ImageController::class, 'updateUserImage']);
 
 // Logout
 Route::get('/logout', [UserController::class, 'logout']);
