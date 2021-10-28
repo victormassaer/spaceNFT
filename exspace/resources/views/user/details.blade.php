@@ -8,7 +8,9 @@
         <div class="flex flex-col justify-center items-center">
             <img class="w-32 h-32 rounded-full mb-3" src="{{$user->image}}" alt="">
             <span class="font-bold text-xl">{{$user->name}}</span>
-            <a class="text-blue-400 font-medium border-lg shadow-xl p-2 rounded-lg" href="/user/profile/{{$user->id}}">Edit Profile</a>
+                @if(Auth::user()->id == request('id'))
+                <a class="text-blue-400 font-medium border-lg shadow-xl p-2 rounded-lg" href="/user/profile/{{$user->id}}">Edit Profile</a>
+                @endif  
         </div>
     </header>
 
