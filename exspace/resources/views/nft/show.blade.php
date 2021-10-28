@@ -37,6 +37,13 @@
         <div class="rounded-lg shadow-xl p-4 col-start-3 col-end-5 row-start-4 row-end-5 flex justify-between items-center">
             <p class="font-bold">€{{ $nft->price }}</p>
             <a class="text-right font-bold text-indigo-500" href="#">Place a bid</a>
+
+            <form method="post" action="/nft/mint/{{ $nft->id }}">
+                @csrf
+                @method('PUT')
+                <input type="submit" value="mint this NFT" class="text-right font-bold text-indigo-500">
+            </form>
+
         </div>
         <div class="rounded-lg shadow-xl p-4 col-start-1 col-end-5 row-start-5 row-end-6 flex flex-col justify-evenly">
             <h2 class="font-medium mb-2">Comments</h2>
