@@ -8,6 +8,14 @@
                  alt="Profile picture of {{ $collections->title }}">
             <span class="font-bold text-xl">{{ $collections->title }}</span>
             <p>{{ $collections->description }}</p>
+            <div class="flex">
+                <a class="text-blue-400 font-medium p-2" href="/collection/{{ $collections->id }}/edit">Edit</a>
+                <form action="/collection/{{ $collections->id }}/delete" method="POST">
+                    @method('DELETE')
+                    @csrf
+                    <button type="submit" name="update_nft" class="text-red-500 font-medium p-2">Delete</button>
+                </form>
+            </div>
         </div>
     </header>
 

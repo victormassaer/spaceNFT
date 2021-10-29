@@ -55,6 +55,10 @@ Route::post('/addNFT', [NFTController::class, 'createNFT'], function(){
     return view('nft.createNft');
 })->name('createNft');
 
+Route::get('/nft/{id}/edit', [NFTController::class, 'edit']);
+Route::put('/nft/{id}/update', [NFTController::class, 'update']);
+Route::delete('/nft/{id}/delete', [NFTController::class, 'destroy']);
+
 /*Route::post('/addNFT', [ImageController::class, 'saveNFTImage'], function(){
     return view('createNFT');
 })->name('createNFT');*/
@@ -74,11 +78,16 @@ Route::get('/createCollection', [CollectionController::class, 'getCollectionByUs
 Route::post('/createCollection', [CollectionController::class, 'createCollection'] , function () {
     return view('collection/createCollection');
 });
+Route::get('/collection/{id}/edit', [CollectionController::class, 'edit']);
+Route::put('/collection/{id}/update', [CollectionController::class, 'update']);
+Route::delete('/collection/{id}/delete', [CollectionController::class, 'destroy']);
+
 
 // User
 Route::get('/user/{id}', [UserController::class, 'getSingleUser']);
-Route::get('/user/profile/{id}',  [UserController::class, 'getProfileInfo']);
-Route::put('/user/update/{id}', [UserController::class, 'updateSingleUser']);
+//Route::get('/user/profile/{id}',  [UserController::class, 'getProfileInfo']);
+Route::get('/user/profile/{id}/edit', [UserController::class, 'edit']);
+Route::put('/user/profile/{id}/update', [UserController::class, 'updateSingleUser']);
 //Route::put('/user/update/{id}', [ImageController::class, 'updateUserImage']);
 
 // Logout

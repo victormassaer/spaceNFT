@@ -10,7 +10,7 @@
                  alt="Profile picture of {{ $user->name }}">
             <span class="font-bold text-xl">{{ $user->name }}</span>
             <a class="text-blue-400 font-medium p-2"
-               href="/user/profile/{{ $user->id }}">Edit Profile</a>
+               href="/user/profile/{{ $user->id }}/edit">Edit Profile</a>
         </div>
     </header>
 
@@ -39,36 +39,4 @@
             @endforeach
         </div>
     </section>
-
-    <section class="mb-8">
-        <div class="m-6">
-            <h2 class="font-bold text-2xl md:text-3xl lg:text-4xl">My collections</h2>
-        </div>
-
-        @if(!$user->collections->isEmpty())
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 m-6">
-                @foreach($user->collections as $collection)
-                    <div class="w-full shadow-xl rounded-lg p-12 flex flex-col justify-center items-center">
-                        <div class="mb-8">
-                            <img class="object-center object-cover rounded-full h-36 w-36"
-                                 src="{{ $collection->image }}"
-                                 alt="Collection {{ $collection->title }} image">
-                        </div>
-                        <div class="text-center">
-                            <p class="text-xl text-gray-700 font-bold mb-2">{{ $collection->title }}</p>
-                        </div>
-                        <a class="p-2 cursor-pointer pl-5 pr-5 transition-colors duration-700 transform bg-indigo-500 hover:bg-blue-400 text-gray-100 text-lg rounded-lg focus:border-4 border-indigo-300">
-                            View collection
-                        </a>
-                    </div>
-                @endforeach
-            </div>
-        @else
-            <div class="text-center">
-                <p class="text-xl font-bold text-indigo-500">This user doesn't have any collections at the moment</p>
-            </div>
-        @endif
-    </section>
-
-
 @endsection

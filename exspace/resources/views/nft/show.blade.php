@@ -12,7 +12,7 @@
 
     <div class="h-auto w-5/6 shadow-xl rounded-lg p-6 mx-auto sm:w-4/6 md:hidden">
         <p class="text-right font-medium">{{ $nft->user_id }}</p>
-        <img class="h-50 w-full object-contain object-center rounded-t-lg rounded-lg" src="{{ $nft->image }}" alt="NFT {{ $nft->title }} image">
+        <img class="h-auto w-full object-contain object-center rounded-t-lg rounded-lg" src="{{ $nft->image }}" alt="NFT {{ $nft->title }} image">
         <div class="flex flex-wrap justify-between mt-2">
             <p class="font-bold">€{{ $nft->price }}</p>
             <a class="text-right font-bold text-indigo-500" href="#">Place a bid</a>
@@ -29,6 +29,14 @@
         </div>
         <div class="rounded-lg shadow-xl p-4 col-start-3 col-end-5 row-start-1 row-end-2 flex justify-between items-center">
             <p class="font-bold">{{ $nft->title }}</p>
+            <div class="flex">
+                <a class="text-blue-400 font-medium p-2" href="/nft/{{ $nft->id }}/edit">Edit</a>
+                <form action="/nft/{{ $nft->id }}/delete" method="POST">
+                    @method('DELETE')
+                    @csrf
+                    <button type="submit" name="update_nft" class="text-red-500 font-medium p-2">Delete</button>
+                </form>
+            </div>
         </div>
         <div class="rounded-lg shadow-xl p-4 col-start-3 col-end-5 row-start-2 row-end-4 flex flex-col justify-evenly">
             <h2 class="font-medium mb-2">Description</h2>

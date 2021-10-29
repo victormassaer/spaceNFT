@@ -59,6 +59,50 @@ class CollectionController extends Controller
         return redirect('/');
     }
 
+    public function edit($id) {
+        $collection = Collection::findOrFail($id);
+
+        return view('/collection/edit')->withCollection($collection);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $collection = Collection::findOrFail($id);
+
+        if(Auth::id() !== $collection->user_id){
+            abort(403);
+        }
+
+        $collection->title = $request->input('title');
+        $collection->description = $request->input('description');
+        $collection->category = $request->input('category');
+//        $user->image = "/images/astronaut_helmet.jpg";
+//        if ($request->hasFile('nft_image')) {
+//            $destination = '/images/' . $user->image;
+//            if (File::exists($destination)) {
+//                File::delete($destination);
+//            }
+//            $file = $request->file('profile_image');
+//            $extension = $file->getClientOriginalExtension();
+//            $filename = time() . '.' . $extension;
+//            $file->move('/images/', $filename);
+//            $user->image = $filename;
+//        }
+        $collection->save();
+    }
+
+    public function destroy($id)
+    {
+        $collection = Collection::findOrFail($id);
+        $user_id = $collection->user_id;
+        if(Auth::id() !== $user_id){
+            abort(403);
+        }
+
+        $collection->delete();
+        return redirect()->route('user/'.$user_id);
+    }
+
     public function getCollectionByUserId()
     {
         $collections = Collection::all();
