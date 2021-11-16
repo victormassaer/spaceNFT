@@ -125,6 +125,6 @@ public function getProfileInfo($id){
     $user->name = $request->input("name");
     $user->email = $request->input('email');
     $user->image = "/images/astronaut_helmet.jpg";
-    $user->save();
+    $user->update();
 }
 }

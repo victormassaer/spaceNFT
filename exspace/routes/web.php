@@ -87,8 +87,8 @@ Route::delete('/collection/{id}/delete', [CollectionController::class, 'destroy'
 Route::get('/user/{id}', [UserController::class, 'getSingleUser']);
 //Route::get('/user/profile/{id}',  [UserController::class, 'getProfileInfo']);
 Route::get('/user/profile/{id}/edit', [UserController::class, 'edit']);
-Route::put('/user/profile/{id}/update', [UserController::class, 'updateSingleUser']);
-//Route::put('/user/update/{id}', [ImageController::class, 'updateUserImage']);
+//Route::put('/user/profile/{id}/update', [UserController::class, 'updateSingleUser']);
+Route::put('/user/profile/{id}/update', [ImageController::class, 'updateUserImage']);
 
 // Logout
 Route::get('/logout', [UserController::class, 'logout']);

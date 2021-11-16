@@ -22,7 +22,7 @@
             </div>
         @endif
         <form class="p-6 shadow-xl rounded-lg flex justify-center items-center flex-col" method="POST"
-              action="/user/profile/{{ $user->id }}/update">
+              action="/user/profile/{{ $user->id }}/update" enctype="multipart/form-data">
             @method('PUT')
             @csrf
 
