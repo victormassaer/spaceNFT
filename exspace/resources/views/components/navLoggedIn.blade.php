@@ -3,7 +3,7 @@
     <div x-data="{ open: false }"
          class="flex flex-col px-4 md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
         <div class="py-4 flex flex-row items-center justify-between">
-            <a href="#"
+            <a href="/"
                class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">Exspace</a>
             <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
                 <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
@@ -19,11 +19,18 @@
         <nav :class="{'flex': open, 'hidden': !open}"
              class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
             <a class="px-4 py-2 mt-2 text-sm font-semibold text-gray-900 rounded-lg md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-               href="{{route('collection')}}">Collections</a>
+               href="{{route('collection')}}">Explore collections</a>
             <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-               href="{{route('login')}}">Login</a>
+               href="{{ url('/createCollection') }}">Create collection</a>
             <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-               href="{{route('register')}}">Register</a>
+               href="{{ url('/addNFT') }}">Add NFT</a>
+            <a class="mt-2 bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+               href="/user/{{ Auth::id() }}">
+                <img class="inline w-10 h-10 mr-1 rounded-full" src="{{ Auth::user()->image }}" alt="Profile picture of {{ Auth::user()->name }}">
+                <span class="font-semibold">{{ Auth::user()->name }}</span>
+            </a>
+            <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+               href="{{ url('/logout') }}">Logout</a>
         </nav>
     </div>
 </div>
