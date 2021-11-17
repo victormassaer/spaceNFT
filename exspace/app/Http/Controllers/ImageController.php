@@ -26,7 +26,7 @@ class ImageController extends Controller
 
     public function updateUserImage($id, Request $request){
         $imageFile = $request->file("profile_image");
-        $user = User::where('id', $id);
+        $user = User::where('id', $id)->first();
 
         $imageHash = $this->uploadImage($imageFile);
 
