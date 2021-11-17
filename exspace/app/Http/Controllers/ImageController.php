@@ -34,9 +34,23 @@ class ImageController extends Controller
         $user->email = $request->input('email');
         $user->image = "https://gateway.pinata.cloud/ipfs/" . $imageHash;
         $user->update(); 
+        return redirect()->back();
     }
 
-    public function saveNFTImage(){
-        
+    public function saveNFT(Request $request){
+        $imageFile = $request->file("nft_image");
+
+        $imageHash = $this->uploadImage($imageFile);
+
+        $nft = new Nft();
+        $nft->title = $request->input('title');
+        $nft->description = $request->input('description');
+        $nft->price = $request->input('price');
+        $nft->is_minted = false;
+        $nft->image = "https://gateway.pinata.cloud/ipfs/" . $imageHash;
+        $nft->user_id = Auth::user()->id;
+        $nft->collection_id = $request->input('collection_id');
+        $nft->save();
+        return redirect("/");
     }
 }

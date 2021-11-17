@@ -51,7 +51,10 @@ Route::get('/addNFT', function(){
     return view('nft.createNft');
 })->name('createNFT');
 
-Route::post('/addNFT', [NFTController::class, 'createNFT'], function(){
+/*Route::post('/addNFT', [NFTController::class, 'createNFT'], function(){
+    return view('nft.createNft');
+})->name('createNft');*/
+Route::post('/addNFT', [ImageController::class, 'saveNFT'], function(){
     return view('nft.createNft');
 })->name('createNft');
 
