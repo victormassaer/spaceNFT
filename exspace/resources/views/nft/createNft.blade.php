@@ -5,12 +5,13 @@
 @section('content')
 
     <div class="w-screen h-screen flex justify-center items-center">
-		<form class="p-10 bg-white rounded flex justify-center items-center flex-col shadow-md" method="post" action="{{url('/addNFT')}}">
+		<form class="p-10 bg-white rounded flex justify-center items-center flex-col shadow-md" method="post" action="{{url('/addNFT')}}" enctype="multipart/form-data">
         @csrf
 			<p class="mb-5 text-3xl uppercase text-gray-600">create NFT</p>
 			<input type="text" name="title" class="mb-5 p-3 w-80 focus:border-purple-700 rounded border-2 outline-none"  placeholder="title" required>
 			<input type="text" name="description" class="mb-5 p-3 w-80 focus:border-purple-700 rounded border-2 outline-none"  placeholder="description" required>
-            add image
+            <input type="file" name="nft_image"
+                   class="mb-5 p-3 w-80 focus:border-purple-700 rounded border-2 outline-none" autocomplete="on">
             <input type="number" name="price" class="mb-5 p-3 w-80 focus:border-purple-700 rounded border-2 outline-none" placeholder="price" required>
             <input type="text" name="collection_id" class="mb-5 p-3 w-80 focus:border-purple-700 rounded border-2 outline-none" placeholder="collection_id" required>
 
