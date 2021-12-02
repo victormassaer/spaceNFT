@@ -34,7 +34,7 @@ class ImageController extends Controller
         $user->email = $request->input('email');
         $user->image = "https://gateway.pinata.cloud/ipfs/" . $imageHash;
         $user->update(); 
-        return redirect()->back();
+        return redirect("/");
     }
 
     public function saveNFT(Request $request){

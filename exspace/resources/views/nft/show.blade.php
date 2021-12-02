@@ -14,7 +14,8 @@
         <p class="text-right font-medium">{{ $nft->user_id }}</p>
         <img class="h-auto w-full object-contain object-center rounded-t-lg rounded-lg" src="{{ $nft->image }}" alt="NFT {{ $nft->title }} image">
         <div class="flex flex-wrap justify-between mt-2">
-            <p class="font-bold">€{{ $nft->price }}</p>
+            <span>€</span>
+            <p class="font-bold" id="nft_price">{{ $nft->price }}</p>
             <a class="text-right font-bold text-indigo-500" href="#">Place a bid</a>
         </div>
     </div>
@@ -25,7 +26,7 @@
 
     <div class="grid grid-cols-4 grid-rows-5 gap-2 h-auto w-5/6 mx-auto mb-12 hidden md:grid lg:grid">
         <div class="col-start-1 col-end-3 row-start-1 row-end-5 rounded-lg shadow-xl p-4 flex justify-around">
-            <img class="h-50 max-w-lg w-full object-contain object-center rounded-t-lg rounded-lg" src="{{ $nft->image }}" alt="NFT {{ $nft->title }} image">
+            <img class="h-50 max-w-lg w-full object-contain object-center rounded-t-lg rounded-lg" id="nft_image" src="{{ $nft->image }}" alt="NFT {{ $nft->title }} image">
         </div>
         <div class="rounded-lg shadow-xl p-4 col-start-3 col-end-5 row-start-1 row-end-2 flex justify-between items-center">
             <p class="font-bold">{{ $nft->title }}</p>
@@ -43,13 +44,14 @@
             <p>{{ $nft->description }}</p>
         </div>
         <div class="rounded-lg shadow-xl p-4 col-start-3 col-end-5 row-start-4 row-end-5 flex justify-between items-center">
-            <p class="font-bold">€{{ $nft->price }}</p>
+            <span>€</span>
+            <p class="font-bold">{{ $nft->price }}</p>
             <a class="text-right font-bold text-indigo-500" href="#">Place a bid</a>
 
             <form method="post" action="/nft/mint/{{ $nft->id }}">
                 @csrf
                 @method('PUT')
-                <input type="submit" value="mint this NFT" class="text-right font-bold text-indigo-500">
+                <input type="submit" value="mint this NFT" class="text-right font-bold text-indigo-500" id="mintBtn">
             </form>
 
         </div>
