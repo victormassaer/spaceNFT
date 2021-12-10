@@ -56,7 +56,7 @@ class CollectionController extends Controller
         $collection->category = $request->input('category');
         $collection->user_id = Auth::user()->id;
         $collection->save();
-        return redirect('/');
+        return redirect('/collection');
     }
 
     public function edit($id) {
@@ -100,7 +100,7 @@ class CollectionController extends Controller
         }
 
         $collection->delete();
-        return redirect()->route('user/'.$user_id);
+        return redirect('/');
     }
 
     public function getCollectionByUserId()

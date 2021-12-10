@@ -24,5 +24,6 @@
         type="application/javascript"></script>
 
         <script src="{{ asset('assets/js/contract.js') }}"></script>
+    @livewireScripts
 </body>
 </html>

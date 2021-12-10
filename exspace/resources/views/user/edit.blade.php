@@ -11,7 +11,7 @@
         </div>
     </header>
 
-    <div class="flex-grow flex justify-center items-center">
+    <div class="flex flex-col justify-center items-center">
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -21,14 +21,18 @@
                 </ul>
             </div>
         @endif
+        <form class="block" action="/user/profile/{{ $user->id }}/delete" method="post">
+            @method('PUT')
+            @csrf
+            <button type="submit" name="update_nft" class="text-red-500 font-medium p-2">Delete Profile Image</button>
+        </form>
         <form class="p-6 shadow-xl rounded-lg flex justify-center items-center flex-col" method="POST"
               action="/user/profile/{{ $user->id }}/update" enctype="multipart/form-data">
             @method('PUT')
             @csrf
 
-            <img class="h-60 w-full object-contain object-center rounded-lg" src="{{ $user->image }}"
+            <img class="h-60 w-full object-contain object-center rounded-lg mb-4" src="{{ $user->image }}"
                  alt="profile picture">
-            <label class="py-2 px-4 mt-2 mb-4" for="">Change profile picture</label>
             <input type="file" name="profile_image"
                    class="mb-5 p-3 w-80 focus:border-purple-700 rounded border-2 outline-none" autocomplete="on">
 
@@ -41,8 +45,9 @@
                       placeholder="Bio"></textarea>
             {{--            <input type="password" name="password" class="mb-5 p-3 w-80 focus:border-purple-700 rounded border-2 outline-none" autocomplete="on" placeholder="Password">--}}
             {{--            <input type="password" name="newPassword" class="mb-5 p-3 w-80 focus:border-purple-700 rounded border-2 outline-none" autocomplete="on" placeholder="New Password">--}}
-            <button class="bg-indigo-500 hover:bg-blue-400 duration-700 transform text-white font-bold p-2 rounded w-80 mb-5"
-                    id="update" type="submit" name="update"><span>Update</span></button>
+            <button
+                class="bg-indigo-500 hover:bg-blue-400 duration-700 transform text-white font-bold p-2 rounded w-80 mb-5"
+                id="update" type="submit" name="update"><span>Update</span></button>
         </form>
     </div>
 

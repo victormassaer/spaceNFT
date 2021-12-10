@@ -78,7 +78,7 @@ Route::get('/createCollection', [CollectionController::class, 'getCollectionByUs
     return view('collection/createCollection');
 });
 
-Route::post('/createCollection', [CollectionController::class, 'createCollection'] , function () {
+Route::post('/createCollection', [ImageController::class, 'createCollection'] , function () {
     return view('collection/createCollection');
 });
 Route::get('/collection/{id}/edit', [CollectionController::class, 'edit']);
@@ -92,6 +92,7 @@ Route::get('/user/{id}', [UserController::class, 'getSingleUser']);
 Route::get('/user/profile/{id}/edit', [UserController::class, 'edit']);
 //Route::put('/user/profile/{id}/update', [UserController::class, 'updateSingleUser']);
 Route::put('/user/profile/{id}/update', [ImageController::class, 'updateUserImage']);
+Route::put('/user/profile/{id}/delete', [ImageController::class, 'deleteUserImage']);
 
 // Logout
 Route::get('/logout', [UserController::class, 'logout']);
