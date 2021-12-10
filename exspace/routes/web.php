@@ -40,6 +40,7 @@ Route::get('/', [HomeController::class, 'getData']);
 
 // NFT
 Route::get('/nft/{nft}', [NFTController::class, 'show']);
+//Route::get('/nft/{nft}', [NFTController::class, 'checkOwner']);
 
 Route::put('/nft/mint/{nft}', [NFTController::class, 'mint']);
 
@@ -54,9 +55,9 @@ Route::get('/addNFT', function(){
 /*Route::post('/addNFT', [NFTController::class, 'createNFT'], function(){
     return view('nft.createNft');
 })->name('createNft');*/
-Route::post('/addNFT', [ImageController::class, 'saveNFT'], function(){
+/*Route::post('/addNFT', [ImageController::class, 'saveNFT'], function(){
     return view('nft.createNft');
-})->name('createNft');
+})->name('createNft');*/
 
 Route::get('/nft/{id}/edit', [NFTController::class, 'edit']);
 Route::put('/nft/{id}/update', [NFTController::class, 'update']);

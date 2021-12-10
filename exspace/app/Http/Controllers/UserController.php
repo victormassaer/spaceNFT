@@ -27,6 +27,8 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
+        //extra validatie toevoegen
+        //waar zit redirect naar index?
         $user = new \App\Models\User();
         $user->name = $request->input('name');
         $user->email = $request->input('email');

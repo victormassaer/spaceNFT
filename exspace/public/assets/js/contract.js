@@ -9,10 +9,10 @@ class App {
         this.launch();
     }
 
+
     async launch() {
         await this.loginWithMetaMask();
         await this.loadAbi();
-        //await this.contractLoadDetails();
         this.setupEvents();
       }
 
@@ -20,21 +20,22 @@ class App {
         document
           .querySelector("#mintBtn")    
           .addEventListener("click", this.mintNFT.bind(this));
-    
-        const contract = new ethers.Contract(
-          this.contractAddress,
-          this.contractAbi,
-          this.provider
-        );
-            
-        //contract.on("Investment", (from, value) => {
-            //console.log(
-              //`New investment from ${from} for ${ethers.utils.formatEther(value)}`
-            //);
-          //});
+
+        document.querySelector("#NFT_create_btn").addEventListener("click", this.putUpForSale.bind(this));
       }
 
-      async mintNFT(){
+        //PUT NFT FOR SALE FUNCTION
+        async putUpForSale(){
+          console.log("Loading the contract code.");
+          let img = document.querySelector("#NFT_upload_image").value; //image input field
+          let p = document.querySelector("#NFT_upload_price").value;//price input field
+          console.log(p, img);
+        }
+
+        //BUY NFT FUNCTION
+      
+        //MINT NFT FUNCTION 
+        async mintNFT(){
         console.log("Loading the contract code.");
         let img = document.querySelector("#nft_image").src;
         let p = document.querySelector("#nft_price").innerHTML;
@@ -49,7 +50,6 @@ class App {
         const tx = await contractWithSigner.mintNFT(img, price)//tokenUri en price
         await tx.await();
         console.log("je hebt een nft gemint, let's go!");
-
       }
 
       async loadAbi() {
@@ -83,4 +83,3 @@ class App {
 }
 
 let NFTApp = new App();
-console.log("het werkt!");
