@@ -40,8 +40,6 @@
       <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/symfony/finder" />
       <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/symfony/deprecation-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/voku/portable-ascii" />
-      <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/nette/utils" />
-      <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/nette/schema" />
       <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/swiftmailer/swiftmailer" />
       <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/phpdocumentor/type-resolver" />
       <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/phpdocumentor/reflection-common" />
@@ -84,7 +82,6 @@
       <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/hamcrest/hamcrest-php" />
       <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/facade/ignition" />
-      <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/dflydev/dot-access-data" />
       <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/egulias/email-validator" />
       <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/facade/flare-client-php" />
       <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/facade/ignition-contracts" />
@@ -110,7 +107,6 @@
       <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/league/mime-type-detection" />
       <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/league/commonmark" />
       <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/sebastian/type" />
-      <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/league/config" />
       <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/sebastian/diff" />
       <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/guzzlehttp/promises" />
       <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/phpspec/prophecy" />
@@ -124,6 +120,7 @@
       <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/doctrine/deprecations" />
       <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/doctrine/event-manager" />
       <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/doctrine/dbal" />
+      <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/livewire/livewire" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

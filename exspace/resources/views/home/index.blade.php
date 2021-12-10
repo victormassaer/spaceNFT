@@ -38,7 +38,7 @@
         <div class="m-6">
             <h2 class="font-bold text-2xl md:text-3xl lg:text-4xl">Explore NFT's</h2>
         </div>
-
+        <livewire:nft-search />
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-6 m-6" id="nft-section">
             @foreach($users as $user)
                 @foreach($user->nfts as $nft)

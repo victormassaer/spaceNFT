@@ -76,6 +76,7 @@ class NFTController extends Controller
 //            $user->image = $filename;
 //        }
         $nft->save();
+        return redirect("/");
     }
 
     public function destroy($id): \Illuminate\Http\RedirectResponse

@@ -13,7 +13,7 @@
                 <label for="name" class="text-base text-xl font-bold leading-7 text-blueGray-500 mb-5">Choose an image for this collection</label>
                 <header
                     class="flex flex-col items-center justify-center py-12 text-base text-blueGray-500 transition duration-500 ease-in-out transform bg-white border border-dashed rounded-lg focus:border-blue-500 focus:outline-none focus:shadow-outline focus:ring-2 ring-offset-current ring-offset-2">
-                    <input class="cursor-pointer" name="image" type="file"</input>
+                    <input class="cursor-pointer" name="collection_image" type="file">
                 </header>
             </section>
             <div class="mb-4">
