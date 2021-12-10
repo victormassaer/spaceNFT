@@ -11,11 +11,11 @@
 			<input type="text" name="title" class="mb-5 p-3 w-80 focus:border-purple-700 rounded border-2 outline-none"  placeholder="title" required>
 			<input type="text" name="description" class="mb-5 p-3 w-80 focus:border-purple-700 rounded border-2 outline-none"  placeholder="description" required>
             <input type="file" name="nft_image"
-                   class="mb-5 p-3 w-80 focus:border-purple-700 rounded border-2 outline-none" autocomplete="on">
-            <input type="number" name="price" class="mb-5 p-3 w-80 focus:border-purple-700 rounded border-2 outline-none" placeholder="price" required>
+                   class="mb-5 p-3 w-80 focus:border-purple-700 rounded border-2 outline-none" autocomplete="on" id="NFT_upload_image">
+            <input type="number" name="price" class="mb-5 p-3 w-80 focus:border-purple-700 rounded border-2 outline-none" id="NFT_upload_price" placeholder="price" required>
             <input type="text" name="collection_id" class="mb-5 p-3 w-80 focus:border-purple-700 rounded border-2 outline-none" placeholder="collection_id" required>
 
-            <button class="duration-700 transform bg-indigo-500 hover:bg-blue-400 text-gray-100 font-bold p-2 rounded w-80" id="create" type="submit" name="create"><span>add NFT</span></button>
+            <button class="duration-700 transform bg-indigo-500 hover:bg-blue-400 text-gray-100 font-bold p-2 rounded w-80" id="NFT_create_btn" type="submit" name="create"><span>add NFT</span></button>
 		</form>
 	</div>
 

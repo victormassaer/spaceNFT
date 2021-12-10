@@ -18,4 +18,9 @@ class Collection extends Model
     {
         return $this->hasMany(Nft::class);
     }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

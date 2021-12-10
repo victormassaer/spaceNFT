@@ -102,4 +102,6 @@ class NFTController extends Controller
         $nft->save();
         return redirect("/");
         }
+
+    
 }
