@@ -90,17 +90,28 @@ class NFTController extends Controller
         return redirect()->route('user/'.$user_id);
     }
 
-    public function mint($id){
-        $error = "You must be the creator of this NFt to mint it.";
+    // public function mint($id){
+        
+    //     $nft = Nft::where('id', $id)->first();
+
+    //     if(\Auth::user()->cannot('update', $nft)){
+    //         return $error;
+    //     }
+    //     $nft->is_minted = true;
+    //     $nft->save();
+    //     return redirect("/");
+    //     }
+
+    public function addTokenId(Request $request){
+        $tokenId = $request->tokenId;
+        $id =$request->NFTId;
         $nft = Nft::where('id', $id)->first();
 
-        if(\Auth::user()->cannot('update', $nft)){
-            return $error;
-        }
+        $nft->tokenId = $tokenId;
         $nft->is_minted = true;
         $nft->save();
         return redirect("/");
-        }
+    }
 
     
 }

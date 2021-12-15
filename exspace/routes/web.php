@@ -42,7 +42,8 @@ Route::get('/', [HomeController::class, 'getData']);
 Route::get('/nft/{nft}', [NFTController::class, 'show']);
 //Route::get('/nft/{nft}', [NFTController::class, 'checkOwner']);
 
-Route::put('/nft/mint/{nft}', [NFTController::class, 'mint']);
+
+Route::post('/nft/addTokenId/{NFTId}/{tokenId}', [NFTController::class, 'addTokenId']);
 
 Route::get('/assets', function () {
     return view('assets/index');

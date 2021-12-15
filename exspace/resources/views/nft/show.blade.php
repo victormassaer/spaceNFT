@@ -12,7 +12,7 @@
 
 <div class="h-auto w-5/6 shadow-xl rounded-lg p-6 mx-auto sm:w-4/6 md:hidden">
     <p class="text-right font-medium">{{ $nft->user_id }}</p>
-    <img class="h-auto w-full object-contain object-center rounded-t-lg rounded-lg" src="{{ $nft->image }}" alt="NFT {{ $nft->title }} image">
+    <img class="h-auto w-full object-contain object-center rounded-t-lg rounded-lg" data-nftId="{{$nft->id}}" src="{{ $nft->image }}" alt="NFT {{ $nft->title }} image">
     <div class="flex flex-wrap justify-between mt-2">
         <span>€</span>
         <p class="font-bold" id="nft_price">{{ $nft->price }}</p>
@@ -60,13 +60,9 @@
             <input type="submit" id="buyNFT" class="bg-white cursor-pointer text-right font-bold text-indigo-500 hover:text-blue-400 transition-colors duration-700 transform" value="Buy NFT">
         </form>
         @endif
-
-
-        <form method="post" action="/nft/mint/{{ $nft->id }}">
-            @csrf
-            @method('PUT')
-            <input type="submit" value="mint this NFT" class="text-right font-bold text-indigo-500" id="mintBtn">
-        </form>
+         <p class="hidden" id="dataAttribute" data-csrf="{{csrf_token()}}">test</p>
+         <p class="hidden" id="dataAttribute2" data-nftId="{{$nft->id}}">test</p>
+        <a href="#" id="mintBtn" class="text-right font-bold text-indigo-500">mint NFT</a>
 
     </div>
     <div class="rounded-lg shadow-xl p-4 col-start-1 col-end-5 row-start-5 row-end-6 flex flex-col justify-evenly">
