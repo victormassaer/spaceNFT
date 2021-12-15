@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Nft;
 use App\Models\Collection;
 use Illuminate\Http\Request;
@@ -26,9 +27,11 @@ class CollectionController extends Controller
     {
         $collections = Collection::all();
         $nfts = Nft::all();
+        $categories = Category::all();
         $data = [
             'collections' => $collections,
-            'nfts' => $nfts
+            'nfts' => $nfts,
+            'categories' => $categories
         ];
         return view('collection/index', $data);
     }
@@ -56,7 +59,7 @@ class CollectionController extends Controller
         $collection->category = $request->input('category');
         $collection->user_id = Auth::user()->id;
         $collection->save();
-        return redirect('/');
+        return redirect('/collection');
     }
 
     public function edit($id) {
@@ -100,7 +103,7 @@ class CollectionController extends Controller
         }
 
         $collection->delete();
-        return redirect()->route('user/'.$user_id);
+        return redirect('/');
     }
 
     public function getCollectionByUserId()

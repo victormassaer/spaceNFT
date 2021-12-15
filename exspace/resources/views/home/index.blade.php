@@ -38,7 +38,7 @@
         <div class="m-6">
             <h2 class="font-bold text-2xl md:text-3xl lg:text-4xl">Explore NFT's</h2>
         </div>
-
+        <livewire:nft-search />
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-6 m-6" id="nft-section">
             @foreach($users as $user)
                 @foreach($user->nfts as $nft)
@@ -54,8 +54,21 @@
                             </div>
                             <div class="grid grid-cols-2">
                                 <p class="font-bold">€{{ $nft->price }}</p>
-                                <a class="text-right font-bold text-indigo-500 hover:text-blue-400 transition-colors duration-700 transform"
-                                   href="/nft/{{ $nft->id }}">Place a bid</a>
+                                @if($nft->user_id == Auth::id())
+                                    <form class="text-right" action="post">
+                                        @csrf
+                                        <input type="submit" id="forSale"
+                                               class="bg-white cursor-pointer font-bold text-indigo-500 hover:text-blue-400 transition-colors duration-700 transform"
+                                               value="Put up for sale">
+                                    </form>
+                                @else
+                                    <form class="text-right" action="post">
+                                        @csrf
+                                        <input type="submit" id="buyNFT"
+                                               class="bg-white cursor-pointer font-bold text-indigo-500 hover:text-blue-400 transition-colors duration-700 transform"
+                                               value="Buy NFT">
+                                    </form>
+                                @endif
                             </div>
                         </div>
                     </div>
