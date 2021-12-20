@@ -108,6 +108,10 @@ class NFTController extends Controller
         $id =$request->NFTId;
         $nft = Nft::where('id', $id)->first();
 
+        if(\Auth::user()->cannot('update', $nft)){
+                return false;
+            }
+
         $nft->tokenId = $tokenId;
         $nft->is_minted = true;
         $nft->save();

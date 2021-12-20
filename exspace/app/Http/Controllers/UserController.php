@@ -29,11 +29,20 @@ class UserController extends Controller
     {
         //extra validatie toevoegen
         //waar zit redirect naar index?
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|unique:users', 
+            'password' => 'required'
+        ]);
+
         $user = new \App\Models\User();
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->password = Hash::make($request->input('password'));
         $user->save();
+        
+        Auth::loginUsingId($user->id);
+        return redirect('/');
     }
 
     public function handleLogin(Request $request)
@@ -46,7 +55,7 @@ class UserController extends Controller
         if (Auth::attempt($credentials)) {
             return redirect()->intended('/');
         } else {
-            return view('/login');
+            return view('/home');
         }
     }
 

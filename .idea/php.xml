@@ -115,6 +115,10 @@
       <path value="$PROJECT_DIR$/exspace/vendor/doctrine/event-manager" />
       <path value="$PROJECT_DIR$/exspace/vendor/doctrine/dbal" />
       <path value="$PROJECT_DIR$/exspace/vendor/livewire/livewire" />
+      <path value="$PROJECT_DIR$/exspace/vendor/nette/schema" />
+      <path value="$PROJECT_DIR$/exspace/vendor/nette/utils" />
+      <path value="$PROJECT_DIR$/exspace/vendor/league/config" />
+      <path value="$PROJECT_DIR$/exspace/vendor/dflydev/dot-access-data" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />

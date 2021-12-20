@@ -4,33 +4,11 @@
 
 @section('content')
 
-<<<<<<< HEAD
-<header class="mx-6 mt-6 mb-3">
-    <div class="text-center">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold py-6 md:py-10 lg:py-16">NFT | {{ $nft->title }}</h1>
-    </div>
-</header>
-
-<div class="h-auto w-5/6 shadow-xl rounded-lg p-6 mx-auto sm:w-4/6 md:hidden">
-    <p class="text-right font-medium">{{ $nft->user_id }}</p>
-    <img class="h-auto w-full object-contain object-center rounded-t-lg rounded-lg" data-nftId="{{$nft->id}}" src="{{ $nft->image }}" alt="NFT {{ $nft->title }} image">
-    <div class="flex flex-wrap justify-between mt-2">
-        <span>€</span>
-        <p class="font-bold" id="nft_price">{{ $nft->price }}</p>
-        <a class="text-right font-bold text-indigo-500" href="#">Place a bid</a>
-    </div>
-</div>
-<div class="h-auto w-5/6 shadow-xl rounded-lg p-6 mx-auto sm:w-4/6 md:hidden">
-    <h2 class="font-medium mb-2">Description</h2>
-    <p>{{ $nft->description }}</p>
-</div>
-=======
     <header class="mx-6 mt-6 mb-3">
         <div class="text-center">
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold py-6 md:py-10 lg:py-16">NFT | {{ $nft->title }}</h1>
         </div>
     </header>
->>>>>>> 0f79bd53215e35a45f490402d144be7e992d9eff
 
     <div class="h-auto w-5/6 shadow-xl rounded-lg p-6 mx-auto sm:w-4/6 md:hidden">
         <p class="text-right font-medium">{{ $nft->user_id }}</p>
@@ -72,16 +50,27 @@
             class="rounded-lg shadow-xl p-4 col-start-3 col-end-5 row-start-4 row-end-5 flex justify-between items-center">
             <span>€</span>
             <p class="font-bold">{{ $nft->price }}</p>
-
-        @else
         
-        <form action="post">
-            @csrf
-            <input type="submit" id="buyNFT" class="bg-white cursor-pointer text-right font-bold text-indigo-500 hover:text-blue-400 transition-colors duration-700 transform" value="Buy NFT">
-        </form>
-        @endif
-         <p class="hidden" id="dataAttribute" data-csrf="{{csrf_token()}}">test</p>
-         <p class="hidden" id="dataAttribute2" data-nftId="{{$nft->id}}">test</p>
+            @if($nft->user_id == Auth::id())
+                <form class="text-right" action="post">
+                    @csrf
+                    <input type="submit" id="forSale"
+                           class="bg-white cursor-pointer font-bold text-indigo-500 hover:text-blue-400 transition-colors duration-700 transform"
+                           value="Put up for sale">
+                </form>
+            @else
+                <form class="text-right" action="post">
+                    @csrf
+                    <input type="submit" id="buyNFT"
+                           class="bg-white cursor-pointer font-bold text-indigo-500 hover:text-blue-400 transition-colors duration-700 transform"
+                           value="Buy NFT">
+                </form>
+            @endif
+
+
+            <p class="hidden" id="dataAttribute" data-csrf="{{csrf_token()}}">test</p>
+            <p class="hidden" id="dataAttribute2" data-nftId="{{$nft->id}}">test</p>
+            <p class="hidden" id="dataAttribute3" data-tokenid="{{$nft->tokenId}}">test</p>
         <a href="#" id="mintBtn" class="text-right font-bold text-indigo-500">mint NFT</a>
 
         </div>

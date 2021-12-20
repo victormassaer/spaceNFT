@@ -27,7 +27,10 @@ class App {
         //PUT NFT FOR SALE FUNCTION
         async putUpForSale(){
           console.log("Loading the contract code.");
-          let p = document.querySelector("#nft_price").value;//price of nft
+          let p = document.querySelector("#nft_price").value;//price van nft
+          let price = parseInt(p);
+          let dataAttribute = document.querySelector("#dataAttribute3");
+          let tokenid = dataAttribute.dataset.tokenid; //deze tokenID komt uit de database en is gelinkt als data-attribute
 
           const contract = new ethers.Contract(
             this.contractAddress,
@@ -35,7 +38,7 @@ class App {
             this.provider
           );
           const contractWithSigner = await contract.connect(this.signer);
-          const tx = await contractWithSigner.putUpForSale(tokendId, price)//tokenId en price
+          const tx = await contractWithSigner.putUpForSale(tokenid, price)//tokenId en price
           await tx.wait().then(res=> {
             console.log(res);
           });
@@ -44,8 +47,22 @@ class App {
 
         //BUY NFT FUNCTION
         async buyNFT(){
+          console.log("Loading the contract code.");
+          let dataAttribute = document.querySelector("#dataAttribute3");
+          let tokenid = dataAttribute.dataset.tokenid; //deze tokenID komt uit de database en is gelinkt als data-attribute
 
+          const contract = new ethers.Contract(
+            this.contractAddress,
+            this.contractAbi,
+            this.provider
+          );
+          const contractWithSigner = await contract.connect(this.signer);
+          const tx = await contractWithSigner.buyNFT(tokenid)
+          await tx.wait().then(res=> {
+            console.log(res);
+          });
         }
+
         //MINT NFT FUNCTION 
         async mintNFT(){
         console.log("Loading the contract code.");
@@ -69,22 +86,22 @@ class App {
           tokenId = ethers.BigNumber.from(tokentIdString).toString();
           console.log(tokenId);
           
-          let nft =document.querySelector("#dataAttribute");
+          let nft =document.querySelector("#dataAttribute"); 
           let dataAttribute = document.querySelector("#dataAttribute2");
           const form = document.createElement('form');
           form.method = "POST";
           
-          let NFTId = dataAttribute.dataset.nftid;
+          let NFTId = dataAttribute.dataset.nftid; //deze tokenID komt uit de database en is gelinkt als data-atribute
           console.log(NFTId);
-          let csrf_token = nft.dataset.csrf;
-          const hiddencsrf = document.createElement('input');
+          let csrf_token = nft.dataset.csrf; //dit is de @CSRF token om csrf aanvallen te voorkomen
+          const hiddencsrf = document.createElement('input'); //via een hiddenform slagen we de tokenID op in de DB
           hiddencsrf.type = 'hidden'
           hiddencsrf.name = '_token'
           hiddencsrf.value = csrf_token;
 
           form.appendChild(hiddencsrf);
           document.body.appendChild(form);
-          form.action = `/nft/addTokenId/${NFTId}/${tokenId}` //aanpassen
+          form.action = `/nft/addTokenId/${NFTId}/${tokenId}`
           form.submit();
         });
         console.log("je hebt een nft gemint, let's go!");
