@@ -9,13 +9,13 @@ class NftSearch extends Component
     public $search;
     public $nfts = [];
 
+    public function mount()
+    {
+        $this->nfts = \App\Models\Nft::all();
+    }
+
     public function search() {
-        if ($this->search === '') {
-            $this->nfts = [];
-        }
-        else {
-            $this->nfts = \App\Models\Nft::where('title', 'LIKE', "%{$this->search}%")->get();
-        }
+        $this->nfts = \App\Models\Nft::where('title', 'LIKE', "%{$this->search}%")->get();
     }
 
     public function render()

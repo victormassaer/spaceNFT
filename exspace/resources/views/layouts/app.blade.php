@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="{{ asset('images/astronaut_helmet_favicon.png') }}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @livewireStyles
     <title>Exspace</title>
 </head>
 <body>

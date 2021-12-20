@@ -1,6 +1,7 @@
 <div class="m-6">
     <input class="w-full py-2 px-4 pr-8 rounded border-2 border-gray-900" wire:keyup="search" wire:model="search"
            type="text" name="search" id="search" placeholder="Search an NFT...">
+
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-6 m-6" id="nft-section">
         @foreach($nfts as $nft)
             <div class="w-full shadow-xl rounded-lg">
