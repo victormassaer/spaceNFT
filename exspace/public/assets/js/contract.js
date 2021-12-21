@@ -28,11 +28,13 @@ class App {
         //PUT NFT FOR SALE FUNCTION
         async putUpForSale(){
           console.log("Loading the contract code.");
-          let p = document.querySelector("#nft_price").value;//price van nft
+          let p = document.querySelector("#nft_price").innerHTML;//price van nft
           let price = parseInt(p);
           let dataAttribute = document.querySelector("#dataAttribute3");
           let tokenid = dataAttribute.dataset.tokenid; //deze tokenID komt uit de database en is gelinkt als data-attribute
 
+          console.log(price);
+          console.log(tokenid);
           const contract = new ethers.Contract(
             this.contractAddress,
             this.contractAbi,
@@ -51,7 +53,9 @@ class App {
           console.log("Loading the contract code.");
           let dataAttribute = document.querySelector("#dataAttribute3");
           let tokenid = dataAttribute.dataset.tokenid; //deze tokenID komt uit de database en is gelinkt als data-attribute
+          console.log(tokenid);
 
+        
           const contract = new ethers.Contract(
             this.contractAddress,
             this.contractAbi,

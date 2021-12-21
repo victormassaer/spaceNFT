@@ -52,7 +52,7 @@
         <div
             class="rounded-lg shadow-xl p-4 col-start-3 col-end-5 row-start-4 row-end-5 flex justify-between items-center">
             <span>EUR</span>
-            <p class="font-bold">{{ $nft->price }}</p>
+            <p class="font-bold" id="nft_price">{{ $nft->price }}</p>
 
             @if($nft->user_id == Auth::id())
                 @if($nft->is_for_sale == 0)
@@ -71,7 +71,7 @@
                     </form>
                 @endif
             @elseif($nft->is_for_sale == 1)
-                <form class="text-right" method="post" action="post">
+                <form class="text-right">
                     @csrf
                     <input type="submit" id="buyNFT"
                            class="bg-white cursor-pointer font-bold text-indigo-500 hover:text-blue-400 transition-colors duration-700 transform"
@@ -107,7 +107,7 @@
                 @elseif (count($nft->comments) > 0)
                     @foreach($nft->comments as $c)
                         <li class="flex flex-row justify-between items-center">
-                            <p>{{ \App\Models\User::all()->where('id', $c->user_id)->first()->name }}</p>
+                            
                             <p>{{ $c->text }}</p>
                             <p>{{ $c->created_at }}</p>
                         </li>

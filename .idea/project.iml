@@ -125,6 +125,8 @@
       <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/nette/utils" />
       <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/league/config" />
       <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/dflydev/dot-access-data" />
+      <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/laravel/envoy" />
+      <excludeFolder url="file://$MODULE_DIR$/exspace/vendor/psr/cache" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
