@@ -87,9 +87,8 @@ class ImageController extends Controller
         $collection = new Collection();
         $collection->title = $request->input('title');
         $collection->description = $request->input('description');
-        //$collection->image = $imageHash;
         $collection->image = "https://gateway.pinata.cloud/ipfs/" . $imageHash;
-        $collection->category = $request->input('category');
+        $collection->category_id = 1;
         $collection->user_id = Auth::user()->id;
         $collection->save();
         return redirect('/collection');

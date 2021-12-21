@@ -26,11 +26,11 @@
                 <input type="text" id="description" name="description" placeholder="Description"
                        class="w-full px-4 py-2 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-gray-100">
             </div>
-            <div class="mb-4">
-                <label for="category" class="text-base leading-7 text-blueGray-500">Category</label>
-                <input type="text" id="category" name="category" placeholder="Category"
-                       class="w-full px-4 py-2 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-gray-100">
-            </div>
+{{--            <div class="mb-4">--}}
+{{--                <label for="category" class="text-base leading-7 text-blueGray-500">Category</label>--}}
+{{--                <input type="text" id="category" name="category" placeholder="Category"--}}
+{{--                       class="w-full px-4 py-2 text-base text-black transition duration-500 ease-in-out transform rounded-lg bg-gray-100">--}}
+{{--            </div>--}}
             <div class="flex items-center w-full pt-4 mb-4">
                 <button id="create" type="submit" name="create"
                     class="w-full py-3 transition-colors duration-700 transform bg-indigo-500 hover:bg-blue-400 text-gray-100 text-lg rounded-lg">
