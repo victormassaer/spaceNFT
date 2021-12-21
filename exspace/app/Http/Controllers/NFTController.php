@@ -113,7 +113,7 @@ class NFTController extends Controller
         return redirect("/");
     }
 
-    /*public function saveComment(Request $request, $id){
+    public function saveComment(Request $request, $id){
         $userId = Auth::id();
         
         $comment = new Comment;
@@ -122,7 +122,7 @@ class NFTController extends Controller
         $comment->user_id = $userId;
         $comment->save();
         return redirect('/nft/' . $id);
-    }*/
+    }
 
     
 }

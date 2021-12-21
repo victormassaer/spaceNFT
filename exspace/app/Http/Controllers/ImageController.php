@@ -26,11 +26,11 @@ class ImageController extends Controller
     }
 
     public function convertPrice($price){
-        $response = Http::get('https://min-api.cryptocompare.com/data/price?fsym=EUR&tsyms=ETH')->json();
-        $eth = $response["ETH"];
-        $p = $price * $eth;
+        $response = Http::get('https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=EUR')->json();
+        $eur = $response["EUR"];
+        $p = $price * $eur;
         return $p;
-    }
+        }
 
     public function updateUserImage($id, Request $request){
         $imageFile = $request->file("profile_image");

@@ -21,7 +21,8 @@ class App {
           .querySelector("#mintBtn")    
           .addEventListener("click", this.mintNFT.bind(this));
 
-        document.querySelector("#buyNFT").addEventListener("click", this.putUpForSale.bind(this));
+        document.querySelector("#forSale").addEventListener("click", this.putUpForSale.bind(this));
+        document.querySelector("#buyNFT").addEventListener("click", this.buyNFT.bind(this));
       }
 
         //PUT NFT FOR SALE FUNCTION

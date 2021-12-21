@@ -14,7 +14,7 @@ class NftComment extends Component
     {
         return view('livewire.nft-comment');
     }
-    
+
     public function store()
     {
         $this->validate([
