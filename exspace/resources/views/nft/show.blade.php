@@ -7,6 +7,7 @@
     <header class="mx-6 mt-6 mb-3">
         <div class="text-center">
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold py-6 md:py-10 lg:py-16">NFT | {{ $nft->title }}</h1>
+            <h2 class="text-2xl text-indigo-500 md:text-3xl lg:text-4xl font-bold">{{ \App\Models\User::all()->where('id', $nft->user_id)->first()->name }}</h2>
         </div>
     </header>
 
@@ -50,19 +51,19 @@
         </div>
         <div
             class="rounded-lg shadow-xl p-4 col-start-3 col-end-5 row-start-4 row-end-5 flex justify-between items-center">
-            <span>ETH</span>
+            <span>EUR</span>
             <p class="font-bold">{{ $nft->price }}</p>
-        
+
             @if($nft->user_id == Auth::id())
                 @if($nft->is_for_sale == 0)
-                    <form class="text-right" action="post">
+                    <form class="text-right" method="post" action="/nft/forSale/{{$nft->id}}">
                         @csrf
                         <input type="submit" id="forSale"
                                class="bg-white cursor-pointer font-bold text-indigo-500 hover:text-blue-400 transition-colors duration-700 transform"
                                value="Put up for sale">
                     </form>
                 @else
-                    <form class="text-right" action="post">
+                    <form class="text-right" method="post" action="/nft/withdrawSale/{{$nft->id}}">
                         @csrf
                         <input type="submit" id="withdrawSale"
                                class="bg-white cursor-pointer font-bold text-indigo-500 hover:text-blue-400 transition-colors duration-700 transform"
@@ -70,7 +71,7 @@
                     </form>
                 @endif
             @elseif($nft->is_for_sale == 1)
-                <form class="text-right" action="post">
+                <form class="text-right" method="post" action="post">
                     @csrf
                     <input type="submit" id="buyNFT"
                            class="bg-white cursor-pointer font-bold text-indigo-500 hover:text-blue-400 transition-colors duration-700 transform"
@@ -81,7 +82,7 @@
             @endif
 
 
-            
+
             @if($nft->user_id == Auth::id())
             <p class="hidden" id="dataAttribute" data-csrf="{{csrf_token()}}">test</p>
             <p class="hidden" id="dataAttribute2" data-nftId="{{$nft->id}}">test</p>
@@ -95,7 +96,7 @@
             <form action="/nft/comment/{{$nft->id}}" method="POST">
                 @csrf
                 <label for="commentInput">post your comment:</label>
-                <input type="text" id="commentInput" name="commentText">
+                <input class="border-2 border-black rounded shadow-sm" type="text" id="commentInput" name="commentText">
                 <input type="submit" id="commentSubmit" value="post comment">
             </form>
 
@@ -106,7 +107,7 @@
                 @elseif (count($nft->comments) > 0)
                     @foreach($nft->comments as $c)
                         <li class="flex flex-row justify-between items-center">
-                            <p>{{ $c->user_id }}</p>
+                            <p>{{ \App\Models\User::all()->where('id', $c->user_id)->first()->name }}</p>
                             <p>{{ $c->text }}</p>
                             <p>{{ $c->created_at }}</p>
                         </li>
