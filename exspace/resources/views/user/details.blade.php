@@ -9,8 +9,10 @@
             <img class="w-32 h-32 rounded-full mb-3" src="{{ $user->image }}"
                  alt="Profile picture of {{ $user->name }}">
             <span class="font-bold text-xl">{{ $user->name }}</span>
-            <a class="text-blue-400 font-medium p-2"
-               href="/user/profile/{{ $user->id }}/edit">Edit Profile</a>
+            @if(Auth::id() == $user->id)
+                <a class="text-blue-400 font-medium p-2"
+                   href="/user/profile/{{ $user->id }}/edit">Edit Profile</a>
+            @endif
         </div>
     </header>
 
