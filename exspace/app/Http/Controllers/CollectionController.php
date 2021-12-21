@@ -78,19 +78,8 @@ class CollectionController extends Controller
 
         $collection->title = $request->input('title');
         $collection->description = $request->input('description');
-//        $user->image = "/images/astronaut_helmet.jpg";
-//        if ($request->hasFile('nft_image')) {
-//            $destination = '/images/' . $user->image;
-//            if (File::exists($destination)) {
-//                File::delete($destination);
-//            }
-//            $file = $request->file('profile_image');
-//            $extension = $file->getClientOriginalExtension();
-//            $filename = time() . '.' . $extension;
-//            $file->move('/images/', $filename);
-//            $user->image = $filename;
-//        }
         $collection->save();
+        return redirect('/collection/' . $collection->id);
     }
 
     public function destroy($id)
