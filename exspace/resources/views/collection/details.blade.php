@@ -35,7 +35,7 @@
                             <p class="font-bold">{{ $nft->title }}</p>
                         </div>
                         <div class="grid grid-cols-2">
-                            <p class="font-bold">€{{ $nft->price }}</p>
+                            <p class="font-bold">EUR {{ $nft->price }}</p>
                             <a class="text-right font-bold text-indigo-500 hover:text-blue-400 transition-colors duration-700 transform"
                                href="#">Place a bid</a>
                         </div>

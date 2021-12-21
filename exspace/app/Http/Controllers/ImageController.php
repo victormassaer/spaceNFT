@@ -72,10 +72,10 @@ class ImageController extends Controller
         $nft->image = "https://gateway.pinata.cloud/ipfs/" . $imageHash;
         $nft->user_id = Auth::user()->id;
         $nft->collection_id = $request->input('collection_id');
+        $nft->is_for_sale = 0;
         $nft->tokenId = 1;
-        $nft->is_for_sale = 1;
         $nft->save();
-        return redirect()->back();
+        return redirect('/user/' . $nft->user_id);
     }
 
     public function createCollection(Request $request)

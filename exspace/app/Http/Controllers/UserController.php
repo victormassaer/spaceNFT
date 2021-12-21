@@ -31,7 +31,7 @@ class UserController extends Controller
         //waar zit redirect naar index?
         $this->validate($request, [
             'name' => 'required',
-            'email' => 'required|unique:users', 
+            'email' => 'required|unique:users',
             'password' => 'required'
         ]);
 
@@ -40,7 +40,7 @@ class UserController extends Controller
         $user->email = $request->input('email');
         $user->password = Hash::make($request->input('password'));
         $user->save();
-        
+
         Auth::loginUsingId($user->id);
         return redirect('/');
     }
@@ -55,7 +55,7 @@ class UserController extends Controller
         if (Auth::attempt($credentials)) {
             return redirect()->intended('/');
         } else {
-            return view('/home');
+            return view('/login');
         }
     }
 

@@ -20,11 +20,11 @@ use \App\Http\Controllers\ImageController;
 
 // Register
 Route::get('/register',[UserController::class,'register'], function () {
-   return view('register');
+    return view('register');
 })->name('register');
 
 Route::post('/register',[UserController::class,'store'], function () {
- })->name('register');
+})->name('register');
 
 // Login
 Route::get('/login',[UserController::class, 'login'], function () {
@@ -53,9 +53,6 @@ Route::get('/addNFT', function(){
     return view('nft.createNft');
 })->name('createNFT');
 
-/*Route::post('/addNFT', [NFTController::class, 'createNFT'], function(){
-    return view('nft.createNft');
-})->name('createNft');*/
 Route::post('/addNFT', [ImageController::class, 'saveNFT'], function(){
     return view('nft.createNft');
 })->name('createNft');
@@ -66,9 +63,8 @@ Route::delete('/nft/{id}/delete', [NFTController::class, 'destroy']);
 
 Route::post("/nft/comment/{id}", [NFTController::class, 'saveComment']);
 
-/*Route::post('/addNFT', [ImageController::class, 'saveNFTImage'], function(){
-    return view('createNFT');
-})->name('createNFT');*/
+Route::post("/nft/forSale/{id}", [NFTController::class, 'putUpForSale']);
+Route::post("/nft/withdrawSale/{id}", [NFTController::class, 'withdrawFromSale']);
 
 // Collection
 
@@ -100,5 +96,3 @@ Route::put('/user/profile/{id}/delete', [ImageController::class, 'deleteUserImag
 
 // Logout
 Route::get('/logout', [UserController::class, 'logout']);
-
-
