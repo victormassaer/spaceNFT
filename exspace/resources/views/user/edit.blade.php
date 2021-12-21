@@ -33,7 +33,7 @@
 
             <img class="h-60 w-full object-contain object-center rounded-lg mb-4" src="{{ $user->image }}"
                  alt="profile picture">
-            <input type="file" name="profile_image"
+            <input type="file" name="profile_image" value="{{ old('image') ?? $user->image }}"
                    class="mb-5 p-3 w-80 focus:border-purple-700 rounded border-2 outline-none" autocomplete="on">
 
             <input type="text" name="name" value="{{ old('name') ?? $user->name }}"
