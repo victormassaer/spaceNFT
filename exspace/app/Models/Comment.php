@@ -12,4 +12,9 @@ class Comment extends Model
     public function nft() {
         return $this->belongsTo(\App\Models\Nft::class);
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

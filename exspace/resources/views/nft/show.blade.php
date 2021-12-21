@@ -12,7 +12,6 @@
 
     <div class="h-auto w-5/6 shadow-xl rounded-lg p-6 mx-auto sm:w-4/6 md:hidden">
         <p class="text-right font-medium">{{ $nft->user_id }}</p>
-        {{$victor}}
         <img class="h-auto w-full object-contain object-center rounded-t-lg rounded-lg" src="{{ $nft->image }}"
              alt="NFT {{ $nft->title }} image">
         <div class="flex flex-wrap justify-between mt-2">
@@ -82,17 +81,12 @@
             @endif
 
 
+            
+            @if($nft->user_id == Auth::id())
             <p class="hidden" id="dataAttribute" data-csrf="{{csrf_token()}}">test</p>
             <p class="hidden" id="dataAttribute2" data-nftId="{{$nft->id}}">test</p>
             <p class="hidden" id="dataAttribute3" data-tokenid="{{$nft->tokenId}}">test</p>
         <a href="#" id="mintBtn" class="text-right font-bold text-indigo-500">mint NFT</a>
-            @if($nft->user_id == Auth::id())
-                <form class="text-right" method="post" action="/nft/mint/{{ $nft->id }}">
-                    @csrf
-                    @method('PUT')
-                    <input type="submit" value="Mint this NFT"
-                           class="cursor-pointer bg-white font-bold text-indigo-500 hover:text-blue-400" id="mintBtn">
-                </form>
             @endif
 
         </div>
@@ -104,7 +98,7 @@
                 <input type="text" id="commentInput" name="commentText">
                 <input type="submit" id="commentSubmit" value="post comment">
             </form>
-            
+
             <h2 class="font-medium mb-2">Comments</h2>
             <ul>
                 @if (count($nft->comments) === 0)
