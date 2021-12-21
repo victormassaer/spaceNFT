@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Models\Nft;
+use App\Models\Comment;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
@@ -110,6 +111,17 @@ class NFTController extends Controller
         $nft->is_minted = true;
         $nft->save();
         return redirect("/");
+    }
+
+    public function saveComment(Request $request, $id){
+        $userId = Auth::id();
+
+        $comment = new Comment;
+        $comment->text = $request->input("commentText");
+        $comment->nft_id = $id;
+        $comment->user_id = $userId;
+        $comment->save();
+        return redirect('/nft/' . $id);
     }
 
     

@@ -63,6 +63,7 @@ class ImageController extends Controller
 
         $imageHash = $this->uploadImage($imageFile);
         $price = $this->convertPrice($request->input('price'));
+
         $nft = new Nft();
         $nft->title = $request->input('title');
         $nft->description = $request->input('description');
@@ -72,6 +73,7 @@ class ImageController extends Controller
         $nft->user_id = Auth::user()->id;
         $nft->collection_id = $request->input('collection_id');
         $nft->tokenId = 1;
+        $nft->is_for_sale = 1;
         $nft->save();
         return redirect()->back();
     }

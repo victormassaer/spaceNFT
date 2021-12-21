@@ -12,10 +12,10 @@
                 <div class="p-4">
                     <div class="mb-4">
                         <p class="font-bold">{{ $nft->title }}</p>
-                        <a href="user/{{ $nft->user_id }}">{{ \App\Models\User::all()->where('id', $nft->user_id)->first()->name }}</a>
+                        
                     </div>
                     <div class="grid grid-cols-2">
-                        <p class="font-bold">€{{ $nft->price }}</p>
+                        <p class="font-bold">ETH {{ $nft->price }}</p>
                         <a class="text-right font-bold text-indigo-500 hover:text-blue-400 transition-colors duration-700 transform"
                            href="/nft/{{ $nft->id }}">Place a bid</a>
                     </div>

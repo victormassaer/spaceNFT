@@ -64,6 +64,8 @@ Route::get('/nft/{id}/edit', [NFTController::class, 'edit']);
 Route::put('/nft/{id}/update', [NFTController::class, 'update']);
 Route::delete('/nft/{id}/delete', [NFTController::class, 'destroy']);
 
+Route::post("/nft/comment/{id}", [NFTController::class, 'saveComment']);
+
 /*Route::post('/addNFT', [ImageController::class, 'saveNFTImage'], function(){
     return view('createNFT');
 })->name('createNFT');*/

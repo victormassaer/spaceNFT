@@ -97,6 +97,14 @@
 
         </div>
         <div class="rounded-lg shadow-xl p-4 col-start-1 col-end-5 row-start-5 row-end-6 flex flex-col justify-evenly">
+
+            <form action="/nft/comment/{{$nft->id}}" method="POST">
+                @csrf
+                <label for="commentInput">post your comment:</label>
+                <input type="text" id="commentInput" name="commentText">
+                <input type="submit" id="commentSubmit" value="post comment">
+            </form>
+            
             <h2 class="font-medium mb-2">Comments</h2>
             <ul>
                 @if (count($nft->comments) === 0)
