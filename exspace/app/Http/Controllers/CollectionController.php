@@ -78,7 +78,6 @@ class CollectionController extends Controller
 
         $collection->title = $request->input('title');
         $collection->description = $request->input('description');
-        $collection->category = $request->input('category');
 //        $user->image = "/images/astronaut_helmet.jpg";
 //        if ($request->hasFile('nft_image')) {
 //            $destination = '/images/' . $user->image;
