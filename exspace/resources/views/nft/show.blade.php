@@ -107,7 +107,7 @@
                 @elseif (count($nft->comments) > 0)
                     @foreach($nft->comments as $c)
                         <li class="flex flex-row justify-between items-center">
-                            
+                            <p>{{ \App\Models\User::all()->where('id', $c->user_id)->first()->name }}</p>
                             <p>{{ $c->text }}</p>
                             <p>{{ $c->created_at }}</p>
                         </li>
