@@ -14,8 +14,8 @@
                 </div>
                 <div class="text-center mb-2">
                     <p class="text-xl text-gray-700 font-bold">{{ $collection->title }}</p>
-                    <span class="text-sm">Category: </span><span
-                        class="text-sm category">{{ \App\Models\Category::all()->where('id', $collection->category_id)->first()->category }}</span>
+{{--                    <span class="text-sm">Category: </span><span--}}
+{{--                        class="text-sm category">{{ \App\Models\Category::all()->where('id', $collection->category_id)->first()->category }}</span>--}}
                 </div>
                 <a href="/collection/{{ $collection->id }}"
                    class="p-2 cursor-pointer pl-5 pr-5 transition-colors duration-700 transform bg-indigo-500 hover:bg-blue-400 text-gray-100 text-lg rounded-lg focus:border-4 border-indigo-300">
