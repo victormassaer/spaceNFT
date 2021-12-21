@@ -34,14 +34,16 @@
         <div
             class="rounded-lg shadow-xl p-4 col-start-3 col-end-5 row-start-1 row-end-2 flex justify-between items-center">
             <p class="font-bold">{{ $nft->title }}</p>
-            <div class="flex">
-                <a class="text-blue-400 font-medium p-2" href="/nft/{{ $nft->id }}/edit">Edit</a>
-                <form action="/nft/{{ $nft->id }}/delete" method="POST">
-                    @method('DELETE')
-                    @csrf
-                    <button type="submit" name="update_nft" class="text-red-500 font-medium p-2">Delete</button>
-                </form>
-            </div>
+            @if($nft->user_id == Auth::id())
+                <div class="flex">
+                    <a class="text-blue-400 font-medium p-2" href="/nft/{{ $nft->id }}/edit">Edit</a>
+                    <form action="/nft/{{ $nft->id }}/delete" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" name="update_nft" class="text-red-500 font-medium p-2">Delete</button>
+                    </form>
+                </div>
+            @endif
         </div>
         <div class="rounded-lg shadow-xl p-4 col-start-3 col-end-5 row-start-2 row-end-4 flex flex-col justify-evenly">
             <h2 class="font-medium mb-2">Description</h2>
@@ -53,19 +55,30 @@
             <p class="font-bold">{{ $nft->price }}</p>
         
             @if($nft->user_id == Auth::id())
-                <form class="text-right" action="post">
-                    @csrf
-                    <input type="submit" id="forSale"
-                           class="bg-white cursor-pointer font-bold text-indigo-500 hover:text-blue-400 transition-colors duration-700 transform"
-                           value="Put up for sale">
-                </form>
-            @else
+                @if($nft->is_for_sale == 0)
+                    <form class="text-right" action="post">
+                        @csrf
+                        <input type="submit" id="forSale"
+                               class="bg-white cursor-pointer font-bold text-indigo-500 hover:text-blue-400 transition-colors duration-700 transform"
+                               value="Put up for sale">
+                    </form>
+                @else
+                    <form class="text-right" action="post">
+                        @csrf
+                        <input type="submit" id="withdrawSale"
+                               class="bg-white cursor-pointer font-bold text-indigo-500 hover:text-blue-400 transition-colors duration-700 transform"
+                               value="Withdraw from sale">
+                    </form>
+                @endif
+            @elseif($nft->is_for_sale == 1)
                 <form class="text-right" action="post">
                     @csrf
                     <input type="submit" id="buyNFT"
                            class="bg-white cursor-pointer font-bold text-indigo-500 hover:text-blue-400 transition-colors duration-700 transform"
                            value="Buy NFT">
                 </form>
+            @else
+                <p>This NFT is currently not for sale</p>
             @endif
 
 
@@ -73,6 +86,14 @@
             <p class="hidden" id="dataAttribute2" data-nftId="{{$nft->id}}">test</p>
             <p class="hidden" id="dataAttribute3" data-tokenid="{{$nft->tokenId}}">test</p>
         <a href="#" id="mintBtn" class="text-right font-bold text-indigo-500">mint NFT</a>
+            @if($nft->user_id == Auth::id())
+                <form class="text-right" method="post" action="/nft/mint/{{ $nft->id }}">
+                    @csrf
+                    @method('PUT')
+                    <input type="submit" value="Mint this NFT"
+                           class="cursor-pointer bg-white font-bold text-indigo-500 hover:text-blue-400" id="mintBtn">
+                </form>
+            @endif
 
         </div>
         <div class="rounded-lg shadow-xl p-4 col-start-1 col-end-5 row-start-5 row-end-6 flex flex-col justify-evenly">
