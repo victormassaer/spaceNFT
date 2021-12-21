@@ -6,7 +6,7 @@
 
     <div class="text-center m-6">
         <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold m-6">Create collection</h1>
-        <form method="post" action="{{url('/createCollection')}}"
+        <form enctype="multipart/form-data" method="post" action="{{url('/createCollection')}}"
             class="shadow-xl flex flex-col w-full p-10 px-8 pt-6 mx-auto my-6 mb-4 transition duration-500 ease-in-out transform bg-white rounded-lg lg:w-1/2 ">
             @csrf
             <section class="flex flex-col w-full h-full p-1 overflow-auto">
