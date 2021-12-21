@@ -25,6 +25,13 @@ class ImageController extends Controller
 
     }
 
+    public function convertPrice($price){
+        $response = Http::get('https://min-api.cryptocompare.com/data/price?fsym=EUR&tsyms=ETH')->json();
+        $eth = $response["ETH"];
+        $p = $price * $eth;
+        return $p;
+    }
+
     public function updateUserImage($id, Request $request){
         $imageFile = $request->file("profile_image");
         $user = User::where('id', $id)->first();
@@ -55,11 +62,11 @@ class ImageController extends Controller
         $imageFile = $request->file("nft_image");
 
         $imageHash = $this->uploadImage($imageFile);
-
+        $price = $this->convertPrice($request->input('price'));
         $nft = new Nft();
         $nft->title = $request->input('title');
         $nft->description = $request->input('description');
-        $nft->price = $request->input('price');
+        $nft->price = $price;
         $nft->is_minted = false;
         $nft->image = "https://gateway.pinata.cloud/ipfs/" . $imageHash;
         $nft->user_id = Auth::user()->id;

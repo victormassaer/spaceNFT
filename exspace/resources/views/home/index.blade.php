@@ -53,7 +53,7 @@
                                 <a href="user/{{ $user->id }}">{{ $user->name }}</a>
                             </div>
                             <div class="grid grid-cols-2">
-                                <p class="font-bold">€{{ $nft->price }}</p>
+                                <p class="font-bold">ETH{{ $nft->price }}</p>
                                 @if($nft->user_id == Auth::id())
                                     <form class="text-right" action="post">
                                         @csrf

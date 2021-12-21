@@ -65,7 +65,7 @@ class NftPolicy
      */
     public function delete(User $user, Nft $nft)
     {
-        
+        return $user->id === $nft->user_id;
     }
 
     /**

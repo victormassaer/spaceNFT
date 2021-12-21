@@ -12,6 +12,7 @@
 
     <div class="h-auto w-5/6 shadow-xl rounded-lg p-6 mx-auto sm:w-4/6 md:hidden">
         <p class="text-right font-medium">{{ $nft->user_id }}</p>
+        {{$victor}}
         <img class="h-auto w-full object-contain object-center rounded-t-lg rounded-lg" src="{{ $nft->image }}"
              alt="NFT {{ $nft->title }} image">
         <div class="flex flex-wrap justify-between mt-2">
@@ -48,7 +49,7 @@
         </div>
         <div
             class="rounded-lg shadow-xl p-4 col-start-3 col-end-5 row-start-4 row-end-5 flex justify-between items-center">
-            <span>€</span>
+            <span>ETH</span>
             <p class="font-bold">{{ $nft->price }}</p>
         
             @if($nft->user_id == Auth::id())

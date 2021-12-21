@@ -43,7 +43,8 @@ class NFTController extends Controller
 
     public function show(Nft $nft){
         $data['nft'] = $nft;
-        return view('nft/show', $data);
+        $victor['victor'] = "hallo";
+        return view('nft/show', $data, $victor);
     }
 
     public function edit($id){
@@ -81,27 +82,20 @@ class NFTController extends Controller
 
     public function destroy($id): \Illuminate\Http\RedirectResponse
     {
-        $nft = Nft::findOrFail($id);
+        $nft = Nft::where('id', $id)->first();
         $user_id = $nft->user_id;
-        if(Auth::id() !== $user_id){
+
+        if(Auth::user()->cannot('delete', $nft)){
             abort(403);
         }
 
+//        if(Auth::id() !== $user_id){
+//            abort(403);
+//        }
+
         $nft->delete();
-        return redirect()->route('user/'.$user_id);
+        return redirect('/user/' . $user_id);
     }
-
-    // public function mint($id){
-        
-    //     $nft = Nft::where('id', $id)->first();
-
-    //     if(\Auth::user()->cannot('update', $nft)){
-    //         return $error;
-    //     }
-    //     $nft->is_minted = true;
-    //     $nft->save();
-    //     return redirect("/");
-    //     }
 
     public function addTokenId(Request $request){
         $tokenId = $request->tokenId;
