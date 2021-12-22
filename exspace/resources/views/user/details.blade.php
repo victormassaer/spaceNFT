@@ -33,17 +33,8 @@
                         </div>
                         <div class="grid grid-cols-2">
                             <p class="font-bold">€{{ $nft->price }}</p>
-                            @if(Auth::id() == request()->route('id'))
-                                <form class="text-right" action="post">
-                                    @csrf
-                                    <input type="submit" id="forSale" class="bg-white cursor-pointer font-bold text-indigo-500 hover:text-blue-400 transition-colors duration-700 transform" value="Put up for sale">
-                                </form>
-                            @else
-                                <form class="text-right" action="post">
-                                    @csrf
-                                    <input type="submit" id="buyNFT" class="bg-white cursor-pointer font-bold text-indigo-500 hover:text-blue-400 transition-colors duration-700 transform" value="Buy NFT">
-                                </form>
-                            @endif
+                            <a class="text-left font-bold text-indigo-500 hover:text-blue-400 transition-colors duration-700 transform"
+                               href="/nft/{{ $nft->id }}">Checkout NFT</a>
                         </div>
                     </div>
                 </div>
